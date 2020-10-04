@@ -441,4 +441,22 @@
 
 
 
+#### <span>18</span>. Cake генератор
+<div id="testing" style="background-size: 40px 40px; background-image: -moz-linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%, transparent 75%, transparent); background-image: -webkit-linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%, transparent 75%, transparent); background-image: linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%, transparent 75%, transparent); box-shadow: 0 0 8px rgba(0,0,0,.3); width: 100%; margin: 0 auto; padding:15px; background-color: #4ea5cd; border-left:7px #3b8eb5 solid;">
+<a href="#" style="text-decoration: none; font:16px 'Open Sans'; font-weight:600; color:#f4f0fc;">Ссылка для тренировки</a> [Скоро]
+</div>
+***С++ и Python***
 
+На вход подаётся текст. Для каждого символа $char$ из исходного текста определите и выведите на экран вероятность того, что случайно выбранный в тексте символ окажется $char$. Какова вероятность генерируя случайные последовательности символов из 4х букв получить слово `cake`, если символы генерируются в соответствии с вероятностями вычисленными ранее?
+
+**Формат ввода**   
+На вход подаётся **одна** строка текста состоящая из больших и маленьких английских букв, пробелов, апострофа и знаков препинания $char \in  [A-z \: a-z \: , \: . \: : \: ' \: ! \: ? \: \:]$. 
+
+**Формат вывода**   
+Для каждого символа в новой строке выведите: двойные кавычки, символ, двойные кавычки, табуляцию, вероятность появления символа (в процентах), символ процент.  
+В отдельной строке выведите число равное вероятности сгенерировать слово `cake`  (в процентах) и символ процент.
+
+<details>
+<summary><b>Пример текста</b></summary>
+<pre>This was a triumph. I'm making a note here: huge success It's hard to overstate my satisfaction. Aperture Science: We do what we must because we can For the good of all of us except for the ones who are dead But there's no sense crying over every mistake You just keep on trying 'till you run out of cake And the science gets done and you make a neat gun For the people who are still alive I'm not even angry I'm being so sincere right now Even though you broke my heart and killed me And tore me to pieces And threw every piece into a fire As they burned it hurt because I was so happy for you! Now these points of data make a beautiful line And we're out of beta, we're releasing on time So I'm glad I got burned Think of all the things we learned For the people who are still alive Go ahead and leave me I think I prefer to stay inside Maybe you'll find someone else to help you Maybe Black Mesa That was a joke, ha ha, fat chance Anyway this cake is great, it's so delicious and moist Look at me still talking, when there's science to do When I look out there it makes me glad I'm not you I've experiments to run, there is research to be done On the people who are still alive And believe me I am still alive I'm doing science and I'm still alive I feel fantastic and I'm still alive While you are dying I'll be still alive And when you're dead I'll be still alive Still alive Still alive</pre>
+</details>
