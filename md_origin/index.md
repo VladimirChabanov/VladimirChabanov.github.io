@@ -441,22 +441,111 @@
 
 
 
-#### <span>18</span>. Cake генератор
+#### <span>16</span>. Хобби
 <div id="testing" style="background-size: 40px 40px; background-image: -moz-linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%, transparent 75%, transparent); background-image: -webkit-linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%, transparent 75%, transparent); background-image: linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%, transparent 75%, transparent); box-shadow: 0 0 8px rgba(0,0,0,.3); width: 100%; margin: 0 auto; padding:15px; background-color: #4ea5cd; border-left:7px #3b8eb5 solid;">
 <a href="#" style="text-decoration: none; font:16px 'Open Sans'; font-weight:600; color:#f4f0fc;">Ссылка для тренировки</a> [Скоро]
 </div>
 ***С++ и Python***
 
-На вход подаётся текст. Для каждого символа $char$ из исходного текста определите и выведите на экран вероятность того, что случайно выбранный в тексте символ окажется $char$. Какова вероятность генерируя случайные последовательности символов из 4х букв получить слово `cake`, если символы генерируются в соответствии с вероятностями вычисленными ранее?
+Ваш друг, чиновник Сигизмунд любитель коллекционировать билеты. Друзья Сигизмунда, зная о его хобби, часто пополняют коллекцию друга билетами банка России. Однажды Сигизмунд узнал, что совершенно случайно, ему подарили билеты принадлежащие Начальнику управления экономической безопасности и противодействия коррупции, полковнику полиции Посадину, любителю коллекционировать чиновников и звёздочки на погонах.   
+Известно, что номер каждого билета состоит из двух строчных латинских букв $[a-z]$ и семи цифр $[0-9]$. Сигизмунду известно, что номера билетов Посандина начинаются на букву $a$ и заканчиваются на 55661. т.е соответствуют шаблону: `a???55661`.  
+Чтобы Сигизмунд не попал в коллекцию Посадина нужно убрать из его коллекции все 
 
 **Формат ввода**   
-На вход подаётся **одна** строка текста состоящая из больших и маленьких английских букв, пробелов, апострофа и знаков препинания $char \in  [A-z \: a-z \: , \: . \: : \: ' \: ! \: ? \: \:]$. 
 
 **Формат вывода**   
-Для каждого символа в новой строке выведите: двойные кавычки, символ, двойные кавычки, табуляцию, вероятность появления символа (в процентах), символ процент.  
-В отдельной строке выведите число равное вероятности сгенерировать слово `cake`  (в процентах) и символ процент.
 
-<details>
-<summary><b>Пример текста</b></summary>
-<pre>This was a triumph. I'm making a note here: huge success It's hard to overstate my satisfaction. Aperture Science: We do what we must because we can For the good of all of us except for the ones who are dead But there's no sense crying over every mistake You just keep on trying 'till you run out of cake And the science gets done and you make a neat gun For the people who are still alive I'm not even angry I'm being so sincere right now Even though you broke my heart and killed me And tore me to pieces And threw every piece into a fire As they burned it hurt because I was so happy for you! Now these points of data make a beautiful line And we're out of beta, we're releasing on time So I'm glad I got burned Think of all the things we learned For the people who are still alive Go ahead and leave me I think I prefer to stay inside Maybe you'll find someone else to help you Maybe Black Mesa That was a joke, ha ha, fat chance Anyway this cake is great, it's so delicious and moist Look at me still talking, when there's science to do When I look out there it makes me glad I'm not you I've experiments to run, there is research to be done On the people who are still alive And believe me I am still alive I'm doing science and I'm still alive I feel fantastic and I'm still alive While you are dying I'll be still alive And when you're dead I'll be still alive Still alive Still alive</pre>
-</details>
+**Пример** 
+
+
+
+#### <span>17</span>. Казино
+<div id="testing" style="background-size: 40px 40px; background-image: -moz-linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%, transparent 75%, transparent); background-image: -webkit-linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%, transparent 75%, transparent); background-image: linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%, transparent 75%, transparent); box-shadow: 0 0 8px rgba(0,0,0,.3); width: 100%; margin: 0 auto; padding:15px; background-color: #4ea5cd; border-left:7px #3b8eb5 solid;">
+<a href="#" style="text-decoration: none; font:16px 'Open Sans'; font-weight:600; color:#f4f0fc;">Ссылка для тренировки</a> [Скоро]
+</div>
+***С++ и Python***
+
+Ваш друг, гуманитарий Сигизмунд, большой любитель играть в рулетку в онлайн казино *[TODO: добавить партнёрскую ссылку]*. Как-то раз ему на глаза попалась книга по статистике и Сигизмунду пришла в голову гениальная идея - использовать теорию вероятности для предсказания выигрышного номера.  
+Т.к. вы ж программист, Сигизмунд просит вас написать программу, которая принимает на вход результаты игры в рулетку и показывает:
+
+- Какие номера выпадали чаще всех за всё время;
+- Какие номера НЕ выпали за последние $k$ = 12 игр. Если игр было меньше, то $k$ равно количеству сыгранных на данный момент игр.
+- Количество выпавших красных и чёрных за последние $k$ игр.
+
+Сигизмунд вводит числа по одному и, после каждого введённого числа, хочет видеть результат работы программы. Количество игр заранее не известно. Как только на вход поступи отрицательное число программа должна завершиться.
+
+![](.\images\europeanroulette.jpg)
+
+**Формат ввода**   
+На вход поступают целые числа в диапазоне $[-36...36]$ по одному за раз (после каждого введённого числа пользователь нажимает <kbd>Enter</kbd>). Чисел может быть любое количество. Ввод завершается отрицательным числом.
+
+**Формат вывода**   
+В первой строке выведите список номеров выпадающих чаще всего через пробел в порядке возрастания. Во второй строке выведите список номеров НЕ выпавших за последние $k$ игр через пробел в порядке возрастания. В третьей строке выведите два числа через пробел, первое - количество выпавших красных, второе - количество выпавших чёрных за последние $k$ игр. Четвёртая строка пустая.
+
+**Пример** 
+
+<table>
+<thead><tr><td width="100%"><b>Консоль</b></td></tr></thead>
+<tr><td valign="top">1<br/>1<br/>0 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36<br/>1 0<br/><br/>26<br/>1 26<br/>0 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 27 28 29 30 31 32 33 34 35 36<br/>1 1<br/><br/>1<br/>1<br/>0 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 27 28 29 30 31 32 33 34 35 36<br/>2 1<br/><br/>-1</td></tr>
+</table> 
+
+
+
+#### <span>18</span>. Евротур
+<div id="testing" style="background-size: 40px 40px; background-image: -moz-linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%, transparent 75%, transparent); background-image: -webkit-linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%, transparent 75%, transparent); background-image: linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%, transparent 75%, transparent); box-shadow: 0 0 8px rgba(0,0,0,.3); width: 100%; margin: 0 auto; padding:15px; background-color: #4ea5cd; border-left:7px #3b8eb5 solid;">
+<a href="#" style="text-decoration: none; font:16px 'Open Sans'; font-weight:600; color:#f4f0fc;">Ссылка для тренировки</a> [Скоро]
+</div>
+***С++ и Python***
+
+Ваш друг, путешественник Сигизмунд, совершает тур по Европе. Будучи в Германии он решил заглянуть в клуб любителей аудиокниг "Vanderbooxxx". В клубе существует правило, начав прослушивать аудиокнигу, посетителю продолжают её читать до тех пор, пока он не произнесёт стоп-слово, которое записывают на листе бумаги и отдают посетителю. Начав прослушивать книгу Сигизмунд вспомнил, что не умеет читать по немецки и из немецкого языка знает только несколько слов (могут быть изменены при проверке): hallo, klempner, dastisch, fantastisch, fluggegecheimen.
+
+Сигизмунд пытается подобрать стоп-слово произнося случайные звуки (далее буквы) из знакомых ему слов. Известно, что:
+
+- Сигизмунд произносит столько же букв, сколько их в стоп-слове;
+- Вероятность произнесения Сигизмундом буквы не зависит от уже произнесённых;
+- Вероятность того, что Сигизмунд произнесёт какую-то букву равна вероятности встретить эту букву во всех известных ему словах.
+
+Вычислите и выведите на экран вероятность того, что слово, которое произнесёт Сигизмунд окажется стоп-словом.
+
+**Формат ввода**   
+В единственной строке вводится стоп-слово, которое состоит из строчных латинских символов $[a-z]$ без умляутов и лигатур.
+
+**Формат вывода**   
+Одно вещественное число.
+
+**Пример** 
+
+<table>
+<thead><tr><td width="50%"><b>Ввод</b></td><td width="50%"><b>Вывод</b></td></tr></thead>
+<tr><td valign="top">help</td><td valign="top">1.9673417176245744e-05</td></tr>
+</table> 
+
+
+
+#### <span>19</span>. XXXXX
+<div id="testing" style="background-size: 40px 40px; background-image: -moz-linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%, transparent 75%, transparent); background-image: -webkit-linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%, transparent 75%, transparent); background-image: linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%, transparent 75%, transparent); box-shadow: 0 0 8px rgba(0,0,0,.3); width: 100%; margin: 0 auto; padding:15px; background-color: #4ea5cd; border-left:7px #3b8eb5 solid;">
+<a href="#" style="text-decoration: none; font:16px 'Open Sans'; font-weight:600; color:#f4f0fc;">Ссылка для тренировки</a> [Скоро]
+</div>
+***С++ и Python***
+
+
+**Формат ввода**   
+
+**Формат вывода**   
+
+**Пример** 
+
+
+
+#### <span>20</span>. XXXXX
+<div id="testing" style="background-size: 40px 40px; background-image: -moz-linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%, transparent 75%, transparent); background-image: -webkit-linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%, transparent 75%, transparent); background-image: linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%, transparent 75%, transparent); box-shadow: 0 0 8px rgba(0,0,0,.3); width: 100%; margin: 0 auto; padding:15px; background-color: #4ea5cd; border-left:7px #3b8eb5 solid;">
+<a href="#" style="text-decoration: none; font:16px 'Open Sans'; font-weight:600; color:#f4f0fc;">Ссылка для тренировки</a> [Скоро]
+</div>
+***С++ и Python***
+
+
+**Формат ввода**   
+
+**Формат вывода**   
+
+**Пример** 
