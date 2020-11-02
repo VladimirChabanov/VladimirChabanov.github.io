@@ -56,6 +56,14 @@
 
 1. Уроки программирования на языке С++: https://ravesli.com/uroki-cpp/
 2. Основы C++. Программирование для начинающих: https://www.youtube.com/playlist?list=PLQOaTSbfxUtCrKs0nicOg2npJQYSPGO9r
+3. Справочник: https://ru.cppreference.com/w/  
+   Английская версия более полная. В футере можно переключить язык.
+4. Официальный сайт Standard C++ Foundation: https://isocpp.org/
+5. Т.к. стандарт языка - это платный документ, можно ознакомится с черновиками в этом ответе на stackoverflow: [Working Draft, Standard for Programming Language C++](https://stackoverflow.com/questions/81656/where-do-i-find-the-current-c-or-c-standard-documents/4653479#4653479) 
+6. Шилдт Герберт - С++: базовый курс, 3-е издание - 2010 - 634 с. (или более позднее)
+7. Прата Стивен - Язык программирования С++. Лекции и упражнения, 6-е изд. - 2012 - 1248 с. (или более позднее)
+8. Дейтел Х.М., Дейтел П.Дж. - Как программировать на С++: Пятое издание. - 2008 г. - 1456 с.  (или более позднее)
+9. Чукич И. - Функциональное программирование на языке C++ / пер. с англ. В. Ю. Винника, А. Н. Киселева. – М.: ДМК Пресс, 2020. – 360 с.: ил.
 
 
 
@@ -63,3 +71,6 @@
 
 1. Курс на платформе Stepic (требуется регистрация): https://stepik.org/512  
 Задачи можно не решать.
+2. PEP 0 -- Index of Python Enhancement Proposals (PEPs): https://www.python.org/dev/peps/
+3. Рекомендованные ссылки с офф. сайта: https://wiki.python.org/moin/RussianLanguage
+
