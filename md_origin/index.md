@@ -17,6 +17,7 @@
 #### Текущий контроль 2
 
 - [Практические задания](./practice2.html)
+- [Тест Блок 1 (23-24)](https://www.classmarker.com/online-test/start/?quiz=gvm5fb48b9bb15c9)
 - [Лабораторная работа №1](./lab1.html)
 - Презентации к лекциям
   - [Лекция 2.1](./presentation/Лекция 2.1.pdf)
