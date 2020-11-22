@@ -19,8 +19,10 @@
 - [Практические задания](./practice2.html)
 - [Тест Блок 1 (23-24)](https://www.classmarker.com/online-test/start/?quiz=gvm5fb48b9bb15c9)
 - [Лабораторная работа №1](./lab1.html)
-- Презентации к лекциям
+- Презентации к лекциям и видео
+  
   - [Лекция 2.1](./presentation/Лекция 2.1.pdf)
-
+  - [Проблема больших файлов в git-репозитории](https://youtu.be/of1zfdZMIvY)
+  - [Избавляемся от мусора в репозитории (.gitignore)](https://youtu.be/f2LuiJBRHTk)
 
 
