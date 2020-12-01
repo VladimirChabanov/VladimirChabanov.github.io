@@ -41,8 +41,9 @@
 
 <table>
 <thead><tr><td width="50%"><b>Ввод</b></td><td width="50%"><b>Вывод</b></td></tr></thead>
-<tr><td valign="top">4<br/>2 1 7 -3</td><td valign="top">-3 1 2 7<br/>7 2 1 -3<br/>-3 1 2 7<br/>7 2 1 -3<br/>-3 1 2 7<br/>7 2 1 -3</td></tr>
+<tr><td valign="top">4<br/>2 1 7 -3</td><td valign="top">-3 1 2 7<br/>7 2 1 -3<br/>-3 1 2 7<br/>7 2 1 -3<br/>1 2 7<br/>7 2 1</td></tr>
 </table> 
+
 
 
 
@@ -67,6 +68,7 @@
 
 <table>
 <thead><tr><td width="50%"><b>Ввод</b></td><td width="50%"><b>Вывод</b></td></tr></thead>
-<tr><td valign="top">4<br/>2 1 7 -3<br/>4<br/>2 1 7 -3</td><td valign="top">-3 1 2 7<br/>7 2 1 -3<br/>-3 1 2 7<br/>7 2 1 -3<br/>-3 1 2 7<br/>7 2 1 -3<br>-3 1 2 7<br/>7 2 1 -3<br/>-3 1 2 7<br/>7 2 1 -3<br/>-3 1 2 7<br/>7 2 1 -3</td></tr>
+<tr><td valign="top">4<br/>2 1 7 -3<br/>4<br/>2 1 7 -3</td><td valign="top">-3 1 2 7<br/>7 2 1 -3<br/>-3 1 2 7<br/>7 2 1 -3<br/>1 2 7<br/>7 2 1<br>-3 1 2 7<br/>7 2 1 -3<br/>-3 1 2 7<br/>7 2 1 -3<br/>1 2 7<br/>7 2 1</td></tr>
 </table> 
+
 
