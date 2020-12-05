@@ -1,0 +1,641 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>lab2</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  html.blink-to-pdf { font-size: 13px; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+svg[id^="mermaidChart"] { line-height: 1em; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+
+
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background: inherit; }
+.CodeMirror-scroll { overflow: auto hidden; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); background: inherit; white-space: nowrap; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background: inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 30px; z-index: 3; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: 0px 0px !important; border: none !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-radius: 0px; border-width: 0px; background: 0px 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; overflow-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
+.CodeMirror-wrap pre { overflow-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right: 30px solid transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right: none; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background: rgba(255, 255, 0, 0.4); }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border-top: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table tr th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr th:first-child,
+table tr td:first-child {
+    margin-top: 0;
+}
+table tr th:last-child,
+table tr td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
+}
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+/*
+.md-fences{
+  margin-left: 40px;
+}
+*/
+
+code {
+  font-size: 85%;
+  padding: 0.2em 0.4em;
+  border-radius: 6px;
+}
+</style>
+</head>
+<body class='typora-export os-windows'>
+<div id='write'  class=''><h1><a name="лабораторная-работа-№2-алиса" class="md-header-anchor"></a><span>Лабораторная работа №2 Алиса</span></h1><p><strong><span>Цель:</span></strong></p><ol start='' ><li><span>Получить представления о структуре post-запроса;</span></li><li><span>Изучить webhooks как метод взаимодействия web-приложений;</span></li></ol><h3><a name="постановка-задачи" class="md-header-anchor"></a><span>Постановка задачи</span></h3><ol start='' ><li><p><span>Разработайте и зарегистрируйте навык для Алисы на сервисе ЯндексюДиалоги;</span></p></li><li><p><span>В качестве backend-a для навыка реализуйте приложение на языке С++ выполняющее следующие функции:</span></p><ol start='' ><li><p><span>Составление продуктовой корзины:</span></p><ul><li><span>Добавление продукта в корзину;</span></li><li><span>Удаление продукта из корзины;</span></li><li><span>Очистка корзины;</span></li><li><span>Вывод списка товаров в корзине;</span></li><li><span>Подсчёт стоимости товаров в корзине.</span></li></ul></li><li><p><span>Вывод справочной информации по навыку;</span></p></li><li><p><span>Регистрацию webhook-ов сторонних сервисов;</span></p></li><li><p><span>Отправку данных на сторонние сервисы. </span></p></li></ol></li><li><p><span>В качестве стороннего сервиса реализуйте приложение на языке Python выполняющее следующие функции:</span></p><ol start='' ><li><span>Ожидание данных о покупке;</span></li><li><span>Сохранение поступивших данных в excel-документ.</span></li></ol></li></ol><p><span>Подробности указаны далее.</span></p><h3><a name="ход-работы" class="md-header-anchor"></a><span>Ход работы</span></h3><h5><a name="0i-введение-структура-http-post-запроса" class="md-header-anchor"></a><span>0.I Введение. Структура http post-запроса</span></h5><p><span>Общая схема post-запроса представлена на рисунке ниже:</span></p><center><img src="./lab2_files/img/post_request.png"></center><center><i>Рис. 1. Структура post-запроса</i></center><p><strong><span>Протокол</span></strong><span>: http, https.</span></p><p><strong><span>Хост</span></strong><span>: доменное имя или ip-адрес сервера. Обычно по одному ip-адресу находится несколько сайтов, в этом случае доменное имя используется сервером, чтобы выбрать правильного получателя запроса.</span></p><p><strong><span>Сетевой порт</span></strong><span>: число от 0 до 65535. Своеобразное расширения IP-адреса, нужен, чтобы несколько приложений на компьютере одновременно могли работать с сетью. Запрос приходит на IP-адрес, а дальше операционная система отдаёт его тому приложению, которое слушает порт указанный в запросе. Несколько приложений не могут одновременно слушать один и тот же порт благодаря этому пакет Skype не попадёт к Discord и т.д.</span>
+<span>Обычно веб сервера слушают 80 и 443 порты. 80 - стандартный порт для http запросов, 443 - для https. Браузеры автоматически дописывают номера портов ориентируясь на название протокола, поэтому пользователю это делать не нужно.</span></p><p><strong><span>Путь к ресурсу</span></strong><span>: просто строка. Приложение получившее запрос само решает как реагировать на эту строку. В целом структура пути к ресурсу не отличается у get и post запросов, но обычно у post-запроса путь указывает на какой-то обработчик (скрипт или функцию в web-приложении), а у get-запроса он вполне может указывать на статический файл (картинку, музыку, ...) .</span></p><p><span>В отличие от get-запросов post-запросы предназначены для отправки данных. Обычно именно этот метод выбирается для отправки данных html-форм, т.к. значения полей не отобразятся в адресной строке браузера и точно не попадут в кэш.</span></p><p>&nbsp;</p><h5><a name="0ii-введение-что-такое-webhook" class="md-header-anchor"></a><span>0.II Введение. Что такое Webhook</span></h5><p><span>О том ,что такое вебхук можно прочитать </span><a href='https://proglib.io/p/vebhuki-kak-poluchat-dannye-bez-promedleniya-i-oprosov-api-2019-11-09'><span>тут</span></a><span>. </span></p><p>&nbsp;</p><h5><a name="0iii-введение-c-и-utf-8" class="md-header-anchor"></a><span>0.III Введение. C++ и utf-8</span></h5><p><span>До сих пор в С++ не предусмотрен стандартный способ работы со строками в формате utf-8, но данный стандарт кодирования символьной информации сейчас настолько распространён, что по факту является общепринятой нормой хранить и обмениваться текстом именно в utf-8.</span></p><p><span>В данной лабораторной работе мы будем обходится стандартными возможностями языка.</span></p><ol start='' ><li><p><span>Для хранения и работы со строками будем использовать </span><code>std::string</code><span>.</span></p></li><li><p><span>Любой строковой литерал в коде должен быть записан с префиксом </span><code>u8</code><span>.</span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="C++"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="c++"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">std::string</span> <span class="cm-variable">str1</span> <span class="cm-operator">=</span> <span class="cm-string">u8"Привет, мир"</span>; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-comment">// Обчная строка</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">if</span> (<span class="cm-variable">str1</span> <span class="cm-operator">==</span> <span class="cm-string">u8"Привет, мир"</span>) <span class="cm-variable">std::cout</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-number">1</span>; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">// Сравнение строк</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">std::string</span> <span class="cm-variable">str1</span> <span class="cm-operator">=</span> <span class="cm-string">u8R"(Привет "Мир дикого запада")"</span>; <span class="cm-comment">// Сырой строковой литерал</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 69px;"></div><div class="CodeMirror-gutters" style="display: none; height: 69px;"></div></div></div></pre></li><li><p><span>Поиск/замена/сравнение на равенство будут работать корректно, если всё будет в utf-8;</span></p></li><li><p><span>С выводом в терминал есть проблемы на windows. Большинство решений доступных на сегодняшний день не универсальны и зависят как от версии OC, так и от компилятора. Простейшим решением, в данном случае может быть сохранение вывода в файл и просмотр через текстовый редактор. Например Sublime Text, при получении фокуса, автоматически перезагружает содержимое файла, если он изменился.</span><br/><span>В коде достаточно создать глобальный файловый поток и в дальнейшем пользоваться им вместо </span><code>cout</code><span>:</span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="c++"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="c++"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#include &lt;fstream&gt;</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">std::ofstream</span> <span class="cm-def">logger</span>(<span class="cm-string">"log.txt"</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">// Где-то дальше по коду</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">logger</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-string">u8"Произошло событие"</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">std::endl</span>;</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 115px;"></div><div class="CodeMirror-gutters" style="display: none; height: 115px;"></div></div></div></pre><p>&nbsp;</p></li></ol><h5><a name="i-подготовка-серверной-части" class="md-header-anchor"></a><span>I. Подготовка серверной части</span></h5><p><span>Серверная часть отвечает за взаимодействие с Алисой, а так же за обработку и дальнейшую пересылку данных подчинённым сервисам. Язык серверного приложения: С++.</span></p><ol start='2' ><li><p><span>Для работы с сетью используйте библиотеку: </span><a href='https://github.com/yhirose/cpp-httplib' target='_blank' class='url'>https://github.com/yhirose/cpp-httplib</a><span>.</span></p><ol start='' ><li><p><span>Клонируйте или скачайте в виде архива репозиторий библиотеки </span><a href='https://github.com/yhirose/cpp-httplib' target='_blank' class='url'>https://github.com/yhirose/cpp-httplib</a><span>;</span></p></li><li><p><span>В папке </span><code>include</code><span> проекта создайте папку </span><code>cpp_httplib</code><span> и скопируйте туда файл </span><code>httplib.h</code><span> из скаченного ранее репозитория. В дальнейшем сам репозиторий больше не потребуется, его можно удалить;</span></p></li><li><p><span>Скопируйте и вставьте в главный </span><code>.cpp</code><span> файл следующий код:</span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="c++" style="break-inside: unset;"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="c++"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#include &lt;iostream&gt;</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#include &lt;string&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#include &lt;cpp_httplib/httplib.h&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">using</span> <span class="cm-keyword">namespace</span> <span class="cm-def">httplib</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">// В этой функции формируем ответ сервера на запрос</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable-3">void</span> <span class="cm-def">gen_response</span>(<span class="cm-keyword">const</span> <span class="cm-variable">Request</span><span class="cm-operator">&amp;</span> <span class="cm-variable">req</span>, <span class="cm-variable">Response</span><span class="cm-operator">&amp;</span> <span class="cm-variable">res</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// Выводим на экран тело запроса</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable">std::cout</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">req</span>.<span class="cm-variable">body</span>.<span class="cm-variable">c_str</span>();</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// Здесь будет ответ, пока-что взят пример из документации</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable">std::string</span> <span class="cm-variable">str</span> <span class="cm-operator">=</span> <span class="cm-string">u8R"(</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-string">{</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-string">"response": {</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-string">"text": "Здравствуйте! Это мы, хороводоведы.",</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-string">"tts": "Здравствуйте! Это мы, хоров+одо в+еды.",</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-string">"buttons": [</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-string">{</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-string">"title": "Надпись на кнопке",</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-string">"payload": {},</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-string">"url": "https://example.com/",</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-string">"hide": true</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-string">}</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-string">],</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-string">"end_session": false</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-string">},</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-string">"version": "1.0"</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-string">})"</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// Отправляем ответ</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable">res</span>.<span class="cm-variable">set_content</span>(<span class="cm-variable">str</span>, <span class="cm-string">"text/json; charset=UTF-8"</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable-3">int</span> <span class="cm-def">main</span>() {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable">Server</span> <span class="cm-variable">svr</span>; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">// Создаём сервер (пока-что не запущен)</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable">svr</span>.<span class="cm-variable">Post</span>(<span class="cm-string">"/"</span>, <span class="cm-variable">gen_response</span>); &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-comment">// Вызвать функцию gen_response на post запрос</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable">std::cout</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-string">"Start server... OK\n"</span>; <span class="cm-comment">// cout использовать нельзя</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable">svr</span>.<span class="cm-variable">listen</span>(<span class="cm-string">"localhost"</span>, <span class="cm-number">1234</span>); &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-comment">// Запускаем сервер на localhost и порту 1234</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 920px;"></div><div class="CodeMirror-gutters" style="display: none; height: 920px;"></div></div></div></pre></li><li><p><span>Обратите внимание, что в отличие от прошлой лабораторной работы, в этом примере сервер отвечает не на get, а на post-запрос.</span><br/><span>При попытке перейти по ссылке </span><a href='http://localhost:1234/' target='_blank' class='url'>http://localhost:1234/</a><span> мы не получим от сервера никакого ответа, т.к. запрос будет отправлен методом get. Для быстрой проверки работоспособности кода вставьте в адресную строку браузера следующее:  </span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="html"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="html"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">data:text/html,<span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">form</span> <span class="cm-attribute">action</span>=<span class="cm-string">http://localhost:1234</span> <span class="cm-attribute">method</span>=<span class="cm-string">post</span><span class="cm-tag cm-bracket">&gt;&lt;</span><span class="cm-tag">input</span> <span class="cm-attribute">name</span>=<span class="cm-string">key</span><span class="cm-tag cm-bracket">&gt;&lt;/</span><span class="cm-tag">form</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 46px;"></div><div class="CodeMirror-gutters" style="display: none; height: 46px;"></div></div></div></pre><p><span>в появившемся поле введите любой текст и нажмите </span><kbd><span>Enter</span></kbd><span>.</span></p></li></ol></li><li><p><span>В дальнейшем нам потребуется работать с JSON. Для этого используйте библиотеку: </span><a href='https://github.com/nlohmann/json' target='_blank' class='url'>https://github.com/nlohmann/json</a><span>.</span></p><ol start='' ><li><span>Скачайте файл </span><code>json.hpp</code><span> отсюда: </span><a href='https://github.com/nlohmann/json/releases' target='_blank' class='url'>https://github.com/nlohmann/json/releases</a><span>. Его также можно найти в репозитории проекта </span><a href='https://github.com/nlohmann/json' target='_blank' class='url'>https://github.com/nlohmann/json</a><span> в папке: </span><code>single_include/nlohmann</code><span>.</span></li><li><span>В папке </span><code>include</code><span> создайте папку </span><code>nlohmann</code><span> и скопируйте туда файл </span><code>json.hpp</code><span>.</span></li><li><span>Добавьте в проект </span><code>#include &lt;nlohmann/json.hpp&gt;</code><span> и </span><code>using json = nlohmann::json;</code></li></ol></li><li><p><span>Взаимодействовать с подчинёнными сервисами будем посредством Webhook-ов. Для этого понадобится способ их регистрации и удаления во время работы сервера.</span></p><ol start='' ><li><p><span>Сразу после запуска сервер должен проверить наличие конфигурационного файла. Если файла нет, то создать (такой как указан ниже), если есть, загрузить.</span></p></li><li><p><span>Конфигурационный файл - это текстовый файл в формате JSON следующей структуры:</span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="json"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="json"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">{</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-string cm-property">"webhooks"</span>:[]</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 69px;"></div><div class="CodeMirror-gutters" style="display: none; height: 69px;"></div></div></div></pre><p><span>В массиве </span><code>webhooks</code><span> перечислены все зарегистрированные вебхуки.</span></p></li><li><p><span>Если серверу приходит get-запрос на </span><code>/webhooks</code><span>, сервер должен заполнить и отдать </span><a href='./lab2_files/dashboard.html'><span>html-шаблон</span></a><span>.  В шаблоне нужно заменить заглушку </span><code>{webhooks_list}</code><span> на пустую строку, если ещё нет зарегистрированных webhook-ов или на блок указанный ниже если есть. Блок нужно повторить столько раз, сколько webhook-ов, при этом вместо </span><code>{Webhook URL}</code><span> должен быть конкретный webhook.</span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="html"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="html"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"form-row align-items-center"</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"col"</span><span class="cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">input</span> <span class="cm-attribute">type</span>=<span class="cm-string">"text"</span> <span class="cm-attribute">value</span>=<span class="cm-string">"{Webhook URL}"</span> <span class="cm-attribute">class</span>=<span class="cm-string">"form-control mb-2"</span> <span class="cm-attribute">disabled</span><span class="cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">div</span> <span class="cm-attribute">class</span>=<span class="cm-string">"col"</span><span class="cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">type</span>=<span class="cm-string">"submit"</span> <span class="cm-attribute">name</span>=<span class="cm-string">"del"</span> <span class="cm-attribute">value</span>=<span class="cm-string">"{Webhook URL}"</span> <span class="cm-attribute">class</span>=<span class="cm-string">"btn btn-danger mb-2"</span><span class="cm-tag cm-bracket">&gt;</span>Удалить<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">div</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 230px;"></div><div class="CodeMirror-gutters" style="display: none; height: 230px;"></div></div></div></pre><p><span>Пример как должен выглядеть </span><a href='./lab2_files/dashboard_example.html'><span>заполненный шаблон</span></a><span> с тремя зарегистрированными webhook-ами.</span></p></li><li><p><span>Нажатие на любую из кнопок на странице приводит к отправке post-запроса на </span><code>/webhooks</code><span>. Если нажата кнопка </span><code>Принять</code><span> в запрос добавляется параметр </span><code>set</code><span> со значением равным тексту указанному в поле ввода которое вводится пользователем. Если нажата кнопка </span><code>Удалить</code><span>, в запрос добавляется параметр </span><code>del</code><span> со значением из соседнего поля ввода.</span></p><details>
+  <summary>Демонстрация</summary>
+  <img src="./lab2_files/img/dash_demo.gif">
+</details></li><li><p><span>При нажатии на кнопку (post-запрос) сервер должен отреагировать добавив новый webhook в список или удалив выбранный. Ответом на запрос должна быть обновлённая страница и все изменения должны быть сохранены в конфигурационный файл. Могут пригодиться:</span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="C++"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="c++"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">// Узнать какой запрос пришёл</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">req</span>.<span class="cm-variable">method</span> <span class="cm-operator">==</span> <span class="cm-string">"GET"</span>; &nbsp; &nbsp; <span class="cm-comment">// true или false</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">req</span>.<span class="cm-variable">method</span> <span class="cm-operator">==</span> <span class="cm-string">"POST"</span>; &nbsp; &nbsp;<span class="cm-comment">// true или false</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">// Узнать есть ли параметр в запросе</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">req</span>.<span class="cm-variable">has_param</span>(<span class="cm-string">"del"</span>); &nbsp; &nbsp;<span class="cm-comment">// true или false</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">// Получить значение параметра из запроса</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">auto</span> <span class="cm-variable">val</span> <span class="cm-operator">=</span> <span class="cm-variable">req</span>.<span class="cm-variable">get_param_value</span>(<span class="cm-string">"del"</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">// Удалить данные из json-объекта по ключу. Удаляет весь массив</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">j</span>.<span class="cm-variable">erase</span>(<span class="cm-string">"webhooks"</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">// Удалить данные из json-массива по индексу. Удаляет элемент с индексом i</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">j</span>[<span class="cm-string">"webhooks"</span>].<span class="cm-variable">erase</span>(<span class="cm-variable">j</span>[<span class="cm-string">"webhooks"</span>].<span class="cm-variable">begin</span>() <span class="cm-operator">+</span> <span class="cm-variable">i</span>);</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 253px;"></div><div class="CodeMirror-gutters" style="display: none; height: 253px;"></div></div></div></pre></li></ol></li><li><p><span>В дальнейшем, по заданию, вам потребуется отсылать данные на все зарегистрированные webhook-и. Обычно это делается методом post. Для проверки корректности отправки данных на webhook воспользуемся ресурсом </span><a href='https://webhook.site' target='_blank' class='url'>https://webhook.site</a></p><ol start='' ><li><p><span>Перейдите по указанной ссылке, в результате вы попадёте на страницу где для вас будет сгенерирован уникальный webhook URL (</span><em><span>Your unique URL</span></em><span>);</span></p></li><li><p><span>В главном меню страницы, справой стороны нажмите кнопку Edit. В появившемся окне в поле </span><em><span>Response body</span></em><span> введите: </span><code>OK</code><span> и нажмите </span><em><span>Save</span></em><span>. Теперь на любой запрос сервис будет отвечать текстом: &quot;OK&quot;;</span></p></li><li><p><span>Создайте пустое консольное приложение, подключите библиотеку </span><code>cpp_httplib</code><span> и скопируйте и вставьте в главный </span><code>.cpp</code><span> файл следующий код:</span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="C++" style="break-inside: unset;"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="c++"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#include &lt;iostream&gt;</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#include &lt;cpp_httplib/httplib.h&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">using</span> <span class="cm-keyword">namespace</span> <span class="cm-def">httplib</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable-3">int</span> <span class="cm-def">main</span>() {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// Создаём клиент и привязываем к домену. Туда пойдут наши запросы</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">Client</span> <span class="cm-variable">cli</span>(<span class="cm-string">"http://webhook.site"</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// Отправляем post в теле которого будет текст {"Hello": "world"}</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">auto</span> <span class="cm-variable">res</span> <span class="cm-operator">=</span> <span class="cm-variable">cli</span>.<span class="cm-variable">Post</span>(<span class="cm-string">"/bd748520-3009-4c3e-9323-affda0b34391"</span>, <span class="cm-string">R"({"Hello": "world"})"</span>, <span class="cm-string">"text/json"</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-comment">// res преобразуется в true, если запрос-ответ прошли без ошибок</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">if</span> (<span class="cm-variable">res</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">// Проверяем статус ответа, т.к. может быть 404 и другие</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">if</span> (<span class="cm-variable">res</span><span class="cm-operator">-&gt;</span><span class="cm-variable">status</span> <span class="cm-operator">==</span> <span class="cm-number">200</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">// В res-&gt;body лежит string с ответом сервера</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">std::cout</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">res</span><span class="cm-operator">-&gt;</span><span class="cm-variable">body</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">std::endl</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">else</span> {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">std::cout</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-string">"Status code: "</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">res</span><span class="cm-operator">-&gt;</span><span class="cm-variable">status</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">std::endl</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">else</span> {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">auto</span> <span class="cm-variable">err</span> <span class="cm-operator">=</span> <span class="cm-variable">res</span>.<span class="cm-variable">error</span>();</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">std::cout</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-string">"Error code: "</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">err</span> <span class="cm-operator">&lt;&lt;</span> <span class="cm-variable">std::endl</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 598px;"></div><div class="CodeMirror-gutters" style="display: none; height: 598px;"></div></div></div></pre></li><li><p><span>В примере замените данные на ваши (из </span><em><span>Your unique URL</span></em><span>). Убедитесь, что в коде протокол </span><em><span>http</span></em><span> иначе ничего не получится.</span></p></li><li><p><span>Запустите код. В терминале вы должны увидеть сообщение &quot;OK&quot;, а на странице </span><a href='https://webhook.site' target='_blank' class='url'>https://webhook.site</a><span> данные из вашего запроса.</span><br/><strong><span>Примечание</span></strong><span>: обратите внимание, что webhook URL, кроме домена, может содержать ещё и путь отличный от корня (как в данном примере), но из за особенностей библиотеки </span><code>cpp_httplib</code><span> нельзя указать полный URL в одном месте, домен и путь указываются в разных местах кода.</span></p></li></ol></li></ol><p>&nbsp;</p><h5><a name="ii-подготовка-webhook-url-для-алисы" class="md-header-anchor"></a><span>II. Подготовка Webhook URL для Алисы</span></h5><p><span>Для взаимодействия с Алисой нам понадобится URL. В этом нам поможет ngrok:</span></p><ol start='' ><li><span>Запустите ngrok указав http и порт, который слушает серверное приложение;</span></li><li><span>Скопируйте URL расположенный в поле </span><code>Forwarding</code><span> (тот, у которой протокол https);</span></li><li><span>Сверните ngrok и не закрывайте, пока выполняете лабораторную, иначе, при следующем запуске ngrok URL поменяется. </span></li></ol><p>&nbsp;</p><h5><a name="iii-подготовка-к-работе-с-сервисом-яндексдиалоги" class="md-header-anchor"></a><span>III. Подготовка к работе с сервисом Яндекс.Диалоги</span></h5><ol start='' ><li><p><span>Создайте или используйте существующий аккаунт на Яндексе (заведите почту).</span></p></li><li><p><span>Перейдите на сервис Яндекс.Диалоги: </span><a href='https://dialogs.yandex.ru/' target='_blank' class='url'>https://dialogs.yandex.ru/</a></p></li><li><p><span>На главной странице нажмите кнопку </span><strong><em><span>Консоль</span></em></strong><span> или </span><strong><em><span>Создать навык</span></em></strong><span>, после чего вы попадёте на </span><em><span>dashboard</span></em><span> со всеми созданными навыками. В начале там будет пусто;</span></p></li><li><p><span>Нажмите кнопку </span><strong><em><span>Создать диалог</span></em></strong><span>, а затем </span><strong><em><span>Навык в Алисе</span></em></strong><span> и вы попадёте на страницу настройки навыка;</span></p></li><li><p><span>Заполните поля формы (</span><a href='https://yandex.ru/dev/dialogs/alice/doc/publish.html/#general__field-request-examples'><span>документация</span></a><span>):</span></p><ol start='' ><li><span>Имя навыка. Имена всех навыков находятся в одном пространстве имён, то есть вам нужно выбрать уникальное имя не совпадающее с уже существующими. Проверка происходит после сохранения настроек. Т.к. мы делаем не публичный навык, обычно, рекомендуют добавлять к названию фамилию. Например: Погода Пупкин.</span></li><li><span>Активационное имя. Можно пропустить.</span></li><li><span>Backend. Выберите Webhook URL и в поле ниже вставьте URL полученный от </span><em><span>ngrok</span></em><span>.</span><br/><strong><span>Примечание</span></strong><span>: каждый раз, когда вы будете закрывать </span><em><span>ngrok</span></em><span>, при новом запуске ссылка будет изменяться и её также придётся менять в данном поле и перепубликовывать навык. Для этого нажмите кнопку </span><em><span>Остановить диалог</span></em><span> в разделе </span><em><span>Общие сведения</span></em><span>, затем замените URL в разделе </span><em><span>Настройки</span></em><span> и заново опубликуйте навык.</span></li><li><span>Голос. Выберите на своё усмотрение.</span></li><li><span>Хранилище. Установите галочку в поле </span><em><span>Использовать хранилище данных в навыке</span></em><span>;</span></li><li><span>Тип доступа. Приватный. В данном случае ваш навык будет доступен только под вашей учётной записью, другие пользователи не смогут его запустить.</span></li><li><span>Доступные поверхности. Не меняем.</span></li><li><span>Поля: Примеры запросов, Имя разработчика, Категорируя и Описание. Заполните на своё усмотрение.</span></li><li><span>Иконка. Используйте любую иконку.</span></li></ol></li><li><p><span>Нажмите </span><strong><em><span>Сохранить</span></em></strong><span>, а затем </span><strong><em><span>Опубликовать</span></em></strong><span>.  </span></p><details>
+  <summary>Демонстрация</summary>
+  <img src="./lab2_files/img/alice.gif">
+</details></li><li><p><span>Запустите серверное приложение (код из пункта I.3);</span></p></li><li><p><span>Перейдите в раздел навыка </span><em><span>Тестирование</span></em><span> и напишите любое сообщение в чат. Если ответ приходит, значит всё настроено правильно.</span></p><details>
+  <summary>Демонстрация</summary>
+  <img src="./lab2_files/img/alice_test.gif">
+</details></li><li><p><span>Изучите документацию: </span><a href='https://yandex.ru/dev/dialogs/alice/doc/protocol.html/'><span>Протокол работы навыка</span></a><span>.</span></p></li></ol><p>&nbsp;</p><h5><a name="iv-алгоритм-работы-серверного-приложения-сервера" class="md-header-anchor"></a><span>IV. Алгоритм работы серверного приложения (Сервера)</span></h5><ol start='' ><li><p><span>Сервер отвечает на </span><a href='https://yandex.ru/dev/dialogs/alice/doc/health-check.html'><span>периодическую проверку</span></a><span> от сервиса Яндекс.Диалоги.</span></p></li><li><p><span>При старте сессии (</span><code>[&quot;session&quot;][&quot;new&quot;]</code><span>) сервер отправляет приветственное сообщение содержащее:</span></p><ul><li><p><span>Текст: &quot;Здравствуйте! Я помогу вам с покупками.&quot;;</span></p></li><li><p><span>Текст дублируется голосом;</span></p></li><li><p><span>Выводятся две кнопки с текстом &quot;Помощь&quot; и &quot;Молчать&quot;.</span></p></li><li><p><a href='https://yandex.ru/dev/dialogs/alice/doc/session-persistence.html'><span>Сессионные данные</span></a><span> по умолчанию:</span></p><ul><li><span>Дублирование текста голосом: включено;</span></li><li><span>Корзина: пуста;</span></li><li><span>Режим работы навыка: основной.</span></li></ul></li></ul></li><li><p><span>Если сессия не новая:</span></p><ol start='' ><li><p><span>Достаёт сессионные данные. Если их нет или они не валидные:</span></p><ul><li><span>Отправляет сообщение объясняющее пользователю, что произошла ошибка;</span></li><li><span>Закрывает сессию.</span></li></ul></li><li><p><span>Анализирует команду и режим работы навыка. В зависимости от чего и выбирает дальнейшие действия;</span></p></li></ol></li></ol><p><strong><span>Возможные запросы к навыку и алгоритм их обработки:</span></strong></p><ol start='' ><li><p><span>Пользователь сказал или нажал кнопку &quot;Молчать&quot;. Реакция:</span></p><ol start='' ><li><span>Все последующие сообщения в пределах сессии выводятся без озвучивания;</span></li><li><span>Во всех последующих сообщениях кнопка &quot;Молчать&quot; заменяется на кнопку &quot;Говорить&quot;;</span></li><li><span>Выполнение действия подтверждается текстом: &quot;Молчу, молчу&quot;.</span></li></ol></li><li><p><span>Пользователь сказал или нажал кнопку &quot;Говорить&quot;. Реакция:</span></p><ol start='' ><li><span>Все последующие сообщения в пределах сессии озвучиваются;</span></li><li><span>Во всех последующих сообщениях кнопка &quot;Говорить&quot; заменяется на кнопку &quot;Молчать&quot;;</span></li><li><span>Выполнение действия подтверждается текстом и голосом: &quot;Хорошо&quot;.</span></li></ol></li><li><p><span>Пользователь сказал или нажал кнопку &quot;Помощь&quot;:</span></p><ol start='' ><li><p><span>Режим работы навыка переключается в режим помощи;</span></p></li><li><p><span>Отправляется стартовое сообщение режима помощи, содержащее:</span></p><ul><li><span>Перечисление всех возможностей навыка в формате: короткое название и небольшое описание. Пример: &quot;Корзина. Поможет организовать покупки&quot;. </span></li><li><span>Завершающую фразу: &quot;О чём рассказать подробнее?&quot;.</span></li><li><span>Кнопки с короткими названиями всех возможностей навыка и кнопка выхода из режима справки;</span></li></ul></li><li><p><span>Если названо/нажата кнопка с коротким названием возможности:</span></p><ul><li><span>Вывести её более подробное описание;</span></li><li><span>Завершающую фразу: &quot;О чём ещё рассказать?&quot;</span></li><li><span>Кнопки с короткими названиями всех возможностей навыка и кнопка выхода из режима справки;</span></li></ul></li><li><p><span>Если пользователь захотел выйти из помощи:</span></p><ul><li><span>Действие подтверждается фразой: &quot;Обращайся ещё&quot;;</span></li><li><span>Кнопки основного режима;</span></li><li><span>Навык переключается в основной режим.</span></li></ul></li></ol></li><li><p><span>Возможность Корзина.  </span></p><ol start='' ><li><p><span>Команда &quot;Очистить корзину&quot;. Реакция:</span></p><ul><li><span>Корзина очищается;</span></li><li><span>Обновляются сессионные данные;</span></li><li><span>Действие подтверждается фразой: &quot;Корзина пуста&quot;;</span></li></ul></li><li><p><span>Команда &quot;Добавить в корзину&quot;. Для простоты полагаем, что:</span></p><ul><li><span>Дважды один и тот же товар пользователь никогда не добавит;</span></li><li><span>Название товара не содержит цифр;</span></li><li><span>Цена товара - это целые рубли без копеек.</span></li></ul><p><span>То есть типичная команда выглядит так: &quot;Добавить в корзину огурцы 20 рублей&quot;. Реакция:</span></p><ul><li><span>В корзину добавляется новый товар;</span></li><li><span>Обновляются сессионные данные;</span></li><li><span>Действие подтверждается фразой: &quot;ОК&quot;;</span></li></ul></li><li><p><span>Команда &quot;Удалить из корзины&quot;. Пользователь должен назвать товар точно так же как и при добавлении. То есть &quot;Огурец&quot; и &quot;Огурцы&quot; - разные товары. Реакция:</span></p><ul><li><p><span>Если товара нет в корзине:</span></p><ul><li><span>Сообщает пользователю, что данного товара нет;</span></li><li><span>Сохраняет сессионные данные без изменения.</span></li></ul></li><li><p><span>Если товар есть в корзине:</span></p><ul><li><span>Удаляет товар из корзины;</span></li><li><span>Обновляются сессионные данные;</span></li><li><span>Действие подтверждается фразой: &quot;ОК&quot;;</span></li></ul></li></ul></li><li><p><span>Команда &quot;Что в корзине&quot;. Реакция:</span></p><ul><li><p><span>Если в корзине нет товаров:</span></p><ul><li><span>Сообщает пользователю, что корзина пуста;</span></li></ul></li><li><p><span>Если в корзине есть товары:</span></p><ul><li><span>Перечисляет все товары в произвольном порядке в формате: Название и цена.</span></li></ul></li></ul></li><li><p><span>Команда &quot;Сумма&quot;. Реакция:</span></p><ul><li><span>Определяет суммарную стоимость товаров в корзине;</span></li><li><span>Сообщает стоимость пользователю.</span></li></ul></li><li><p><span>Команда &quot;Покупка завершена&quot;. Реакция:</span></p><ul><li><p><span>Если в корзине есть хоть один товар, отправляет всем подписавшимся (всем webhook-ам) post-запрос с json в следующем формате:</span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="json"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="json"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">{</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-string cm-property">"user_id"</span>: <span class="cm-string">"9359F683B13A18A1"</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-string cm-property">"check"</span>:[</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-string cm-property">"item"</span>: <span class="cm-string">"сандальки"</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-string cm-property">"price"</span>: <span class="cm-number">250</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  },</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-string cm-property">"item"</span>: <span class="cm-string">"носки"</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-string cm-property">"price"</span>: <span class="cm-number">100</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  ]</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 299px;"></div><div class="CodeMirror-gutters" style="display: none; height: 299px;"></div></div></div></pre></li></ul><p><span>Где &quot;user_id&quot; содержит значение из </span><code>[&quot;session&quot;][&quot;user&quot;][&quot;user_id&quot;]</code><span> полученного от Алисы, если оно есть, иначе строку </span><code>&quot;anonymous&quot;</code><span>. &quot;check&quot; - массив всех товаров с ценами из чека.</span></p><ul><li><span>Действие подтверждается фразой: &quot;Заходите ещё&quot;;</span></li><li><span>Завершает сессию</span></li></ul></li></ol></li><li><p><span>Если поступила неизвестная команда, сервер отправляет сообщение, в котором:</span></p><ul><li><span>Сообщает пользователю, что не знает команду;</span></li><li><span>Сохраняет сессионные данные без изменения. </span></li></ul><p><strong><span>Примечание</span></strong><span>: Считается, что пользователь всегда даёт команды в нужной словоформе, то есть &quot;Помощь&quot; и &quot;Помоги&quot; - разные команды. Навык должен реагировать только на правильную команду, дополнительные вариации предусматривать не обязательно (по желанию).</span></p></li></ol><p>&nbsp;</p><h5><a name="v-клиентское-приложение" class="md-header-anchor"></a><span>V. Клиентское приложение</span></h5><p><span>Клиентское приложение предназначено для получения данных от сервера и сохранения их в excel-документ. Язык клиентского приложения: Python.</span></p><ol start='' ><li><p><span>Для работы с Excel-документом удобно использовать модуль </span><code>openpyxl</code><span>. Модуль </span><code>openpyxl</code><span> можно установить при помощи </span><code>pip</code><span> :</span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang=""><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">pip install openpyxl</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="display: none; height: 23px;"></div></div></div></pre><p><span>Изучите документацию с официального сайта: </span><a href='https://openpyxl.readthedocs.io/en/stable/' target='_blank' class='url'>https://openpyxl.readthedocs.io/en/stable/</a><span></span><br/><span>Работа с </span><code>openpyxl</code><span> продемонстрирована в этих видео: </span><a href='https://youtu.be/VQNV_oOdOqo'><span>запись</span></a><span>, </span><a href='https://youtu.be/d5jHpPSp5uI'><span>чтение</span></a><span>.</span></p></li><li><p><span>В отличие от предыдущей лабораторной работы клиентское приложение будет не отправлять запрос и обрабатывать ответ, а наоборот, ожидать пока к нему обратятся, то есть будет действовать по серверной логике. Модуль requests в данной ситуации нам не подойдёт.</span></p></li><li><p><span>Воспользуемся микрофреймворком </span><a href='https://ru.wikipedia.org/wiki/Flask_(веб-фреймворк)'><span>Flask</span></a><span>. Небольшой вводный </span><a href='https://www.youtube.com/playlist?list=PLA0M1Bcd0w8yrxtwgqBvT6OM4HkOU3xYn'><span>видео курс</span></a><span>.</span></p><ol start='' ><li><p><span>Установите Flask выполнив команду:</span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang=""><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">pip install flask</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="display: none; height: 23px;"></div></div></div></pre></li><li><p><span>Создайте пустой скрипт, затем скопируйте и вставьте туда следующий код:</span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="python"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">from</span> <span class="cm-variable">flask</span> <span class="cm-keyword">import</span> <span class="cm-variable">Flask</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">app</span> = <span class="cm-variable">Flask</span>(<span class="cm-variable">__name__</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">@app</span>.<span class="cm-property">route</span>(<span class="cm-string">'/'</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">def</span> <span class="cm-def">index</span>():</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-string">"Hello, World!"</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">if</span> <span class="cm-variable">__name__</span> == <span class="cm-string">"__main__"</span>:</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable">app</span>.<span class="cm-property">run</span>()</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 230px;"></div><div class="CodeMirror-gutters" style="display: none; height: 230px;"></div></div></div></pre><p><span>В результате запустится сервер, который будет слушать 5000 порт и на get-запросы к корню &quot;сайта&quot; будет вызывать функцию </span><code>index</code><span> . Всё, что вернёт функция </span><code>index</code><span> будет отправлено в ответ на запрос. Для проверки, перейдите по адресу: </span><a href='http://localhost:5000/' target='_blank' class='url'>http://localhost:5000/</a><span>. </span></p></li><li><p><span>По заданию клиентское приложение должно реагировать на post-запросы. Модифицируем код:</span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="python"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">from</span> <span class="cm-variable">flask</span> <span class="cm-keyword">import</span> <span class="cm-variable">Flask</span>, <span class="cm-variable">request</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">app</span> = <span class="cm-variable">Flask</span>(<span class="cm-variable">__name__</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">@app</span>.<span class="cm-property">route</span>(<span class="cm-string">'/'</span>, <span class="cm-variable">methods</span>=[<span class="cm-string">'POST'</span>, <span class="cm-string">'GET'</span>])</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">def</span> <span class="cm-def">index</span>():</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">if</span> <span class="cm-variable">request</span>.<span class="cm-property">method</span> == <span class="cm-string">'POST'</span>:</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-string">"Это POST запрос"</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">if</span> <span class="cm-variable">request</span>.<span class="cm-property">method</span> == <span class="cm-string">'GET'</span>:</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-string">"Это GET запрос"</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword cm-error">if</span> <span class="cm-variable">__name__</span> == <span class="cm-string">"__main__"</span>:</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">app</span>.<span class="cm-property">run</span>()</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 299px;"></div><div class="CodeMirror-gutters" style="display: none; height: 299px;"></div></div></div></pre></li><li><p><span>Т.к. клиентское приложение будет получать данные от серверного приложения в формате json, то нам потребуется их достать из тела запроса. Для этого у request есть методы </span><a href='https://werkzeug.palletsprojects.com/en/1.0.x/wrappers/#werkzeug.wrappers.json.JSONMixin.json'><span>json</span></a><span> и </span><a href='https://werkzeug.palletsprojects.com/en/1.0.x/wrappers/#werkzeug.wrappers.json.JSONMixin.get_json'><span>get_json</span></a><span>. Обратите внимание, что данные методы отработают корректно, только в том случае, если у посылаемых данных будет установлен </span><em><span>mimetype</span></em><span> как </span><code>application/json</code><span>. При любом другом и даже </span><code>text/json</code><span>  результат будет None.</span><br/><span>Пример работы в flask с данными в формате json можно посмотреть в этом </span><a href='https://youtu.be/9ql0uA6ziJs'><span>видео</span></a><span>.</span></p></li></ol></li></ol><p><strong><span>Алгоритм работы клиентского приложения:</span></strong></p><ol start='' ><li><p><span>Клиентское приложение взаимодействует с сервером посредством webhook, подписываясь на событие: пользователь завершил покупку. Само приложение ничего не регистрирует, нужно это сделать руками.</span></p></li><li><p><span>Приложение ждёт post-запрос к корню (&quot;/&quot;).</span></p></li><li><p><span>Когда запрос приходит, то:</span></p><ol start='' ><li><span>Полученные данные складываются в переменную-буфер. Данные приходят в json формате (структура описана выше).</span></li><li><span>Отправляется ответ: &quot;OK&quot;.</span></li></ol></li><li><p><span>Когда количество записей в буфере превосходит 1000, данные сохраняются в excel-таблицу с именем </span><code>data.xlsx</code><span> и буфер очищается.</span></p></li><li><p><span>Сохранение в  excel-таблицу происходит по алгоритму:</span></p><ol start='' ><li><span>Если файл </span><code>data.xlsx</code><span> существует, то новые данные дописываются в конец таблицы.</span></li><li><span>Если файлa нет, то он создаётся. При этом кроме данных, в строке с индексом 1 добавляется заголовок таблицы.</span></li></ol><p><span>Формат таблицы:</span></p><figure><table><thead><tr><th style='text-align:center;' ><span>N</span></th><th style='text-align:center;' ><span>User ID</span></th><th style='text-align:center;' ><span>Datetime</span></th><th style='text-align:center;' ><span>Item</span></th><th style='text-align:center;' ><span>Prise</span></th></tr></thead><tbody><tr><td style='text-align:center;' >&nbsp;</td><td style='text-align:center;' >&nbsp;</td><td style='text-align:center;' >&nbsp;</td><td style='text-align:center;' >&nbsp;</td><td style='text-align:center;' >&nbsp;</td></tr></tbody></table></figure><p><span>Где &quot;N&quot; - номер записи в таблице начиная с 1 и далее с шагом 1; &quot;User ID&quot; - данные из поля </span><code>user_id</code><span> взятые из входящего json; &quot;Datetime&quot; - дата и время. Вычисляются на клиенте в момент получения данных (</span><a href='https://youtu.be/JI--7RqYkE0'><span>например так</span></a><span>); &quot;Item&quot; - название товара; &quot;Prise&quot; - цена товара.</span></p></li></ol><p>&nbsp;</p><h3><a name="что-должно-быть-в-отчёте" class="md-header-anchor"></a><span>Что должно быть в отчёте</span></h3><ol start='' ><li><p><span>Отчёт по лабораторной работе оформляется в соответствии с указанными в разделе Правила оценивания </span><a href='./scores.html#лабораторные-задания'><span>требованиями</span></a><span>.</span></p></li><li><p><span>В отчёте создайте раздел (заголовок второго уровня) </span><em><span>Постановка задачи</span></em><span> и продублируйте туда соответствующий блок из этого документа.</span></p></li><li><p><span>Создайте раздел (заголовок второго уровня) </span><em><span>Выполнение работы</span></em><span> и текстом подробно опишите всё, что делали в процессе выполнения. В описании обязательно должны присутствовать:</span></p><ol start='' ><li><span>Скриншот со страницы настроек навыка (должно быть видно название);</span></li><li><span>Демонстрация работы функционала Корзина (достаточно скриншота с диалогом);</span></li><li><span>Демонстрация работы функционала Помощь (достаточно скриншота с диалогом);</span></li><li><span>Скриншот страницы управления webhook-ами с добавленным webhook-ом клиентского приложения;</span></li><li><span>Ссылка на excel-файл заполненный клиентским приложением. Сам файл разместить в репозитории. Не обязательно делать 1000 записей, размер буфера можно уменьшить;</span></li><li><span>Полный исходный код серверного приложения;</span></li><li><span>Полный исходный код клиентского приложения;</span></li></ol></li><li><p><span>В папке с лабораторной работой должно быть:</span></p><ol start='' ><li><span>Отчёт в файле ReadMe.md;</span></li><li><span>Каталог с excel файлом;</span></li><li><span>Каталог с серверным приложением на языке С++;</span></li><li><span>Каталог с клиентским приложением на языке Python.</span></li></ol></li></ol></div>
+</body>
+</html>
