@@ -2,14 +2,15 @@
 <html>
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-<title>index</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+<title>index</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
 html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
 body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
 iframe { margin: auto; }
 a.url { word-break: break-all; }
 a:active, a:hover { outline: 0px; }
 .in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
-#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
 #write.first-line-indent p { text-indent: 2em; }
 #write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
 #write.first-line-indent li { margin-left: 2em; }
@@ -77,6 +78,7 @@ div.hr:focus { cursor: none; }
 li div { padding-top: 0px; }
 blockquote { margin: 1rem 0px; }
 li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
 li { margin: 0px; position: relative; }
 blockquote > :last-child { margin-bottom: 0px; }
 blockquote > :first-child, li > :first-child { margin-top: 0px; }
@@ -86,7 +88,6 @@ blockquote > :first-child, li > :first-child { margin-top: 0px; }
   body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
   #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
   .typora-export * { -webkit-print-color-adjust: exact; }
-  html.blink-to-pdf { font-size: 13px; }
   .typora-export #write { break-after: avoid; }
   .typora-export #write::after { height: 0px; }
   .is-mac table { break-inside: avoid; }
@@ -100,6 +101,7 @@ p > .md-image:only-child { display: inline-block; width: 100%; }
 #write .MathJax_Display { margin: 0.8em 0px 0px; }
 .md-math-block { width: 100%; }
 .md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
 [contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
 .md-task-list-item { position: relative; list-style-type: none; }
 .task-list-item.md-task-list-item { padding-left: 0px; }
@@ -150,13 +152,16 @@ table tr th { border-bottom: 0px; }
 video { max-width: 100%; display: block; margin: 0px auto; }
 iframe { max-width: 100%; width: 100%; border: none; }
 .highlight td, .highlight tr { border: 0px; }
-svg[id^="mermaidChart"] { line-height: 1em; }
 mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
 .md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
 mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
 @media print {
   .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
 }
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-require-zoom-fix foreignobject { font-size: var(--mermaid-font-zoom); }
 
 
 :root {
@@ -352,24 +357,24 @@ table tr:nth-child(2n),
 thead {
     background-color: #f8f8f8;
 }
-table tr th {
+table th {
     font-weight: bold;
     border: 1px solid #dfe2e5;
     border-bottom: 0;
     margin: 0;
     padding: 6px 13px;
 }
-table tr td {
+table td {
     border: 1px solid #dfe2e5;
     margin: 0;
     padding: 6px 13px;
 }
-table tr th:first-child,
-table tr td:first-child {
+table th:first-child,
+table td:first-child {
     margin-top: 0;
 }
-table tr th:last-child,
-table tr td:last-child {
+table th:last-child,
+table td:last-child {
     margin-bottom: 0;
 }
 
@@ -553,6 +558,6 @@ code {
 </style>
 </head>
 <body class='typora-export os-windows'>
-<div id='write'  class=''><h1 align="center"> Программирование</h1><h4><a name="общее" class="md-header-anchor"></a><span>Общее</span></h4><ul><li><a href='./scores.html'><span>Правила оценивания</span></a></li><li><a href='./plagiat.html'><span>Плагиат</span></a></li><li><a href='./repo.html'><span>Репозиторий</span></a></li><li><a href='./docs.html'><span>Материалы</span></a></li><li><a href='./dict.html'><span>Словарь</span></a></li></ul><h4><a name="текущий-контроль-1" class="md-header-anchor"></a><span>Текущий контроль 1</span></h4><ul><li><a href='./practice1.html'><span>Практические заданий</span></a></li><li><a href='https://www.classmarker.com/online-test/start/?quiz=7695f7a2821a44ad'><span>Тест Блок 2 (06-10)</span></a></li><li><a href='https://www.classmarker.com/online-test/start/?quiz=mv95f90bdad343b3'><span>Тест Блок 3 (11-15)</span></a></li></ul><h4><a name="текущий-контроль-2" class="md-header-anchor"></a><span>Текущий контроль 2</span></h4><ul><li><p><a href='./practice2.html'><span>Практические задания</span></a></p></li><li><p><a href='https://www.classmarker.com/online-test/start/?quiz=gvm5fb48b9bb15c9'><span>Тест Блок 1 (23-24)</span></a></p></li><li><p><a href='./lab1.html'><span>Лабораторная работа №1</span></a></p></li><li><p><span>Презентации к лекциям и видео</span></p><ul><li><a href='./presentation/Лекция 2.1.pdf'><span>Лекция 2.1</span></a></li><li><a href='https://youtu.be/of1zfdZMIvY'><span>Проблема больших файлов в git-репозитории</span></a></li><li><a href='https://youtu.be/f2LuiJBRHTk'><span>Избавляемся от мусора в репозитории (.gitignore)</span></a></li></ul></li></ul><h4><a name="текущий-контроль-3" class="md-header-anchor"></a><span>Текущий контроль 3</span></h4><ul><li><a href='./practice3.html'><span>Практические задания</span></a></li><li><a href='./lab2.html'><span>Лабораторная работа №2</span></a></li></ul></div>
+<div id='write'  class=''><h1 align="center"> Программирование</h1><h4><a name="общее" class="md-header-anchor"></a><span>Общее</span></h4><ul><li><a href='./scores.html'><span>Правила оценивания</span></a></li><li><a href='./plagiat.html'><span>Плагиат</span></a></li><li><a href='./repo.html'><span>Репозиторий</span></a></li><li><a href='./docs.html'><span>Материалы</span></a></li><li><a href='./dict.html'><span>Словарь</span></a></li></ul><h4><a name="текущий-контроль-1" class="md-header-anchor"></a><span>Текущий контроль 1</span></h4><ul><li><a href='./practice1.html'><span>Практические заданий</span></a></li><li><a href='https://www.classmarker.com/online-test/start/?quiz=7695f7a2821a44ad'><span>Тест Блок 2 (06-10)</span></a></li><li><a href='https://www.classmarker.com/online-test/start/?quiz=mv95f90bdad343b3'><span>Тест Блок 3 (11-15)</span></a></li></ul><h4><a name="текущий-контроль-2" class="md-header-anchor"></a><span>Текущий контроль 2</span></h4><ul><li><p><a href='./practice2.html'><span>Практические задания</span></a></p></li><li><p><a href='https://www.classmarker.com/online-test/start/?quiz=gvm5fb48b9bb15c9'><span>Тест Блок 1 (23-24)</span></a></p></li><li><p><a href='./lab1.html'><span>Лабораторная работа №1</span></a></p></li><li><p><span>Презентации к лекциям и видео</span></p><ul><li><a href='./presentation/Лекция 2.1.pdf'><span>Лекция 2.1</span></a></li><li><a href='https://youtu.be/of1zfdZMIvY'><span>Проблема больших файлов в git-репозитории</span></a></li><li><a href='https://youtu.be/f2LuiJBRHTk'><span>Избавляемся от мусора в репозитории (.gitignore)</span></a></li></ul></li></ul><h4><a name="текущий-контроль-3" class="md-header-anchor"></a><span>Текущий контроль 3</span></h4><ul><li><a href='./practice3.html'><span>Практические задания</span></a></li><li><a href='./lab2.html'><span>Лабораторная работа №2</span></a></li></ul><h4><a name="текущий-контроль-4" class="md-header-anchor"></a><span>Текущий контроль 4</span></h4><ul><li><p><a href='./practice4.html'><span>Практические задания</span></a></p></li><li><p><span>Презентации</span></p><ul><li><a href='./presentation/Лекция 2.6.1.pdf'><span>Лекция 2.6.1 Структуры</span></a></li><li><a href='./presentation/Лекция 2.6.2.pdf'><span>Лекция 2.6.2 Объединения. Перечисления</span></a></li></ul></li></ul></div>
 </body>
 </html>
