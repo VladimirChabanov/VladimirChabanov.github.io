@@ -143,10 +143,10 @@ LootBox generateLootBox();
 | Rune         | level = 5; element = WATER                   | 1.3            |
 | Rune         | level = 5; element = EARTH                   | 0.7            |
 | Rune         | level = 5; element = AIR                     | 1.4            |
-| Rune         | level = 5; element = FIRE                    | 0.06           |
-| Rune         | level = 5; element = WATER                   | 0.13           |
-| Rune         | level = 5; element = EARTH                   | 0.07           |
-| Rune         | level = 5; element = AIR                     | 0.14           |
+| Rune         | level = 10; element = FIRE                   | 0.06           |
+| Rune         | level = 10; element = WATER                  | 0.13           |
+| Rune         | level = 10; element = EARTH                  | 0.07           |
+| Rune         | level = 10; element = AIR                    | 0.14           |
 | Weapon       | damage = 100; critical = 0; durability = 100 | 1.4            |
 | Weapon       | damage = 75; critical = 50; durability = 100 | 1.4            |
 | Armor        | guard = 50; durability = 100                 | 2.8            |
