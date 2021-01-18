@@ -12,9 +12,12 @@
 
 Т.к. предыдущий ресурс практически не содержит теории и каких либо объяснений, продолжить изучение можно при помощи эти двух книг:
 
-- [https://git-scm.com/book/ru/v2](https://git-scm.com/book/ru/v2)
+- [https://git-scm.com/book/ru/v2](https://git-scm.com/book/ru/v2);
+- [https://uleming.github.io/gitbook/index.html](https://uleming.github.io/gitbook/index.html);
 
-- [https://uleming.github.io/gitbook/index.html](https://uleming.github.io/gitbook/index.html)
+Видео:
+
+- Неплохой плейлист по git, но солоноват для новичков: https://youtube.com/playlist?list=PLDyvV36pndZHkDRik6kKF6gSb0N0W995h;
 
 ### Про файл .gitignore
 
@@ -26,7 +29,7 @@
 
 - О том же, но в текстовом виде:[https://devacademy.ru/article/ignorirovanie-faylov-i-katalogov-v-git](https://devacademy.ru/article/ignorirovanie-faylov-i-katalogov-v-git)
 
-Для большенства инструментов разработки уже существуют шаблоны `.gitignore`, вот некоторые из них:
+Для большинства инструментов разработки уже существуют шаблоны `.gitignore`, вот некоторые из них:
 
 - Коллекция `.gitignore` файлов на github.com: [https://github.com/github/gitignore](https://github.com/github/gitignore)
 - Тут можно сгенерировать шаблон `.gitignore`: [https://www.toptal.com/developers/gitignore](https://www.toptal.com/developers/gitignore)  
@@ -71,6 +74,9 @@
 
 1. Курс на платформе Stepic (требуется регистрация): https://stepik.org/512  
 Задачи можно не решать.
-2. PEP 0 -- Index of Python Enhancement Proposals (PEPs): https://www.python.org/dev/peps/
+2. PEP 0 -- Index of Python Enhancement Proposals (PEPs): https://www.python.org/dev/peps/  
+   Настоятельно рекомендуется ознакомиться с  [PEP8](https://www.python.org/dev/peps/pep-0008/) (соглашение о стиле оформления код принятые сообществом Pyhton).
 3. Рекомендованные ссылки с офф. сайта: https://wiki.python.org/moin/RussianLanguage
+4. Седер Наоми - Python. Экспресс-курс. 3-е изд. - СПб.: Питер, 2019. - 480 с.: ил. - (Серия «Библи-
+   отека программиста»).
 
