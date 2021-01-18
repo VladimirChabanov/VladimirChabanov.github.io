@@ -7,7 +7,11 @@
 - [Репозиторий](./repo.html)
 - [Материалы](./docs.html)
 - [Словарь](./dict.html)
+
+#### Экзамен
+
 - [Тест 100 рандомных вопросов из 213](https://www.classmarker.com/online-test/start/?quiz=e7r600360ce1dc1c)
+- [Вопросы вынесенные на экзамен](./exam_questions.html)
 
 #### Текущий контроль 1
 
