@@ -12,6 +12,7 @@
 
 - [Тест 100 рандомных вопросов из 213](https://www.classmarker.com/online-test/start/?quiz=e7r600360ce1dc1c)
 - [Вопросы вынесенные на экзамен](./exam_questions.html)
+- [Процедура проведения экзамена](./exam.html)
 
 #### Текущий контроль 1
 
