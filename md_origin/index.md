@@ -6,7 +6,7 @@
 
 - [Форма регистрации темы курсовой](https://docs.google.com/forms/d/e/1FAIpQLSed3KDin4GlgMbF6ifkVimKDlfiKGf9yix-tAInFuNkmAfWSg/viewform?usp=sf_link)
 
-#### Текущий контроль 1 (15.02.2021 - 07.03.2021)
+#### Текущий контроль 1 (15.02.2021 - 14.03.2021)
 
 - [Практические заданий](./practice5.html)
 - [Лабораторная работа №4](./lab4.html)
