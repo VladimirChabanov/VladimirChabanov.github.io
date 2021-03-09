@@ -1,5 +1,7 @@
 <h1 align="center"> Программирование</h1>
 
+![](./resources/img/python-vs-c-plu-plus.png)
+
 ### Весенний семестр
 
 #### Курсовая работа
