@@ -7,9 +7,6 @@
 #### Курсовая работа
 
 - [Форма регистрации темы курсовой](https://docs.google.com/forms/d/e/1FAIpQLSed3KDin4GlgMbF6ifkVimKDlfiKGf9yix-tAInFuNkmAfWSg/viewform?usp=sf_link)
-- Требования к курсовой работе
-- Шаблон курсовой работы
-- Пример курсовой работы
 - [Оформление ВКР ФТИ](./resources/files/Oformlenie-VKR-FTI-2019.pdf)
 
 #### Текущий контроль 1 (15.02.2021 - 14.03.2021)
