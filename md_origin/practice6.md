@@ -14,7 +14,7 @@
 
 1. Конструкторы:
    - Конструктор с тремя параметрами `a1` и `a2` типа `double` и `coord_system` типа перечисление состоящее из двух значений: [`Cartesian`](https://ru.wikipedia.org/wiki/Прямоугольная_система_координат) и [`Polar`](https://ru.wikipedia.org/wiki/Полярная_система_координат). Если третий параметр задан как `Cartesian`, то параметры `a1` и `a2` являются координатами `x` и `y` декартовой системы координат, если третий параметр задан как `Polar`, то `a1` и `a2` это `r` и $\varphi$ полярной системы координат соответственно ($\varphi$ везде задаётся в радианах). Параметр `coord_system` имеет значение по умолчанию `Cartesian`, а `a1` и `a2` по умолчанию нули.
-2. Деструкторы. Т.к. класс динамически нечего не создаёт деструктор можно не объявлять.
+2. Деструктор. Т.к. класс динамически нечего не создаёт деструктор можно не объявлять.
 3. Операторы `==` и `!=`. Сравнивает два объекта класса `Point` на равенство/не равенство, при этом не играет роли в какой системе координат задавались координаты точки при создании. Если отклонение по каждой координате не превышает 10<sup>-10</sup>, то считается что это одна и та же точка. 
 4. Оператор `<<`. Выводит координаты точки в поток в виде строки в формате: "(X,Y)", где X и Y заменяются на значение координат точки `x` и `y` в декартовой системе координат.
 5. Оператор `>>`. Считывает координаты точки из потока в виде строки в формате: "(X,Y)", где X и Y координаты точки `x` и `y` в декартовой системе координат.
@@ -35,7 +35,7 @@
 const auto PI = 3.141592653589793;
   
 class Point;
-// Ваш код тут
+// Ваш код здесь
   
 int main() {
 	std::vector<Point> original;
@@ -117,3 +117,166 @@ print('\nIt works!\n' if simulacrum == original else '\nIt not works!\n')
 
 **Формат вывода**  
 Вывод должен заканчиваться на "It works!",  что свидетельствует о том, что класс написан правильно. Если вывод заканчивается на "It not works!", значите в классе есть ошибки.
+
+
+
+#### <span>37</span>. Класс Вектор на плоскости
+
+<div id="testing" style="background-size: 40px 40px; background-image: -moz-linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%, transparent 75%, transparent); background-image: -webkit-linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%, transparent 75%, transparent); background-image: linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%, transparent 75%, transparent); box-shadow: 0 0 8px rgba(0,0,0,.3); width: 100%; margin: 0 auto; padding:15px; background-color: #4ea5cd; border-left:7px #3b8eb5 solid;">
+<a href="#" style="text-decoration: none; font:16px 'Open Sans'; font-weight:600; color:#f4f0fc;">Ссылка для тренировки</a> (Скоро)
+</div>
+
+***С++***
+
+Создайте класс `Vector` реализующий идею [вектора](https://ru.wikipedia.org/wiki/Вектор_(геометрия)) на плоскости. Внутренняя реализация класса на ваше усмотрение.
+
+В качестве обязательных членов должны присутствовать:
+
+1. Конструкторы (НЕ совмещать):
+   - Конструктор по умолчанию. Конструктор создаёт вектор единичной длины в направлении оси $OX$.
+   - Конструктор с одним параметром. Параметр `end` - это объект класса `Point` (задание 36). Конструктор создаёт вектор направленный из начала координат в точку `end`.
+   - Конструктор с двумя параметрами. Параметры - `begin` и `end` - это объекты класса `Point`. Конструктор создаёт вектор направленный из `begin` в `end`.
+2. Деструктор. Т.к. класс динамически нечего не создаёт можно не объявлять свой деструктор.
+4. Оператор `==`. Сравнивает два объекта класса `Vector` на равенство. Точность сравнения 10<sup>-10</sup>. 
+6. Оператор унарный `-`. Возвращает новый вектор направление которого противоположно направлению вектора к которому применяется оператор.
+7. Оператор бинарный `+`. Левый и правый операнды класса `Vector`.  Возвращает новый вектор являющийся покомпонентной суммой левого и правого операндов.
+8. Оператор бинарный `-`. Левый и правый операнды класса `Vector`.  Возвращает новый вектор являющийся покомпонентной разностью левого и правого операндов.
+9. Оператор бинарный `*`. Левый операнд класса `Vector`, правый типа `double`.  Возвращает новый вектор компоненты которого умножены на правый операнд.
+8. Метод `length`. Метод не принимает параметров и возвращает длину вектора;
+9. Оператор бинарный `*`. Левый и правый операнды класса `Vector`.  Возвращает вещественное число вычисляющееся как скалярное произведение векторов-операндов.
+
+Используйте код представленный ниже для проверки правильности реализации класса. Рекомендуется закомментировать все тесты и "открывать" их по одному, по мере выполнения задания.
+
+```c++
+#include <iostream>
+using namespace std;
+ 
+double sqr(double a);
+bool equal(double a, double b, double e = 1E-10);
+ 
+class Point;
+// Класс Point из задания 36
+ 
+class Vector;
+// Ваш код здесь
+ 
+int main()
+{
+    Vector a(Point(1, 2)), b(Point(-2, 0), Point(-1, 2));
+    if (a == b && b == a) cout << "Equality test passed\n";
+    else cout << "Equality test failed\n";
+ 
+    Vector na(Point(-1, -2)), ox(Point(1, 0)), nox(Point(-1, 0)), oy(Point(0, 1)), noy(Point(0, -1));
+    if (a == -na && na == -a && -ox == nox && -oy == noy) cout << "Invert test passed\n";
+    else cout << "Invert test failed\n";
+ 
+    if (ox + oy + oy == a && -ox == -a + oy + oy) cout << "Summation test passed\n";
+    else cout << "Summation test failed\n";
+ 
+    if (-ox + oy == oy - ox && -oy + ox == ox - oy) cout << "Subtraction test passed\n";
+    else cout << "Subtraction test failed\n";
+ 
+    if (ox * 3 == ox + ox + ox &&
+        oy * 3 == oy + oy + oy &&
+        ox * (-3) == -ox - ox - ox &&
+        oy * (-3) == -oy - oy - oy) cout << "Multiplication by number test passed\n";
+    else cout << "Multiplication by number test failed\n";
+ 
+    if (equal(ox.length(), 1) &&
+        equal(oy.length(), 1) &&
+        equal((ox * 3 + oy * 4).length(), 5)) cout << "Length test passed\n";
+    else cout << "Length test failed\n";
+ 
+    if (equal(ox*ox, sqr(ox.length())) &&
+        equal(oy*oy, sqr(oy.length())) &&
+        equal((ox*3 + oy*4)*(ox*3 + oy*4), sqr((ox*3 + oy*4).length()))) cout << "Multiplication by Vector test passed\n";
+    else cout << "Multiplication by Vector test failed\n";
+}
+ 
+bool equal(double a, double b, double e) {
+    if (-e < a - b && a - b < e) return true;
+    else return false;
+}
+ 
+double sqr(double a) {
+    return a * a;
+}
+```
+
+***Python***
+
+По аналогии с заданием для **С++** реализуйте класс `Vector`.
+
+В качестве обязательных членов должны присутствовать:
+
+1. Метод `__init__`. Кроме `self` должен принимать ещё два параметра: `begin` и `end` - экземпляры класса `Point` из задания 36:
+   - Если параметры не заданы, то создаётся вектор единичной длины в направлении оси $OX$.
+   - Если задан один параметр, создаётся вектор направленный из начала координат в точку переданную в качестве параметра.
+   - Если заданы оба параметра `begin` и `end`, то создаётся вектор направленный из `begin` в `end`.
+2. Финализатор. Можно не объявлять.
+5. Метод `__eq__` (оператор `==`). Сравнивает два объекта класса `Vector` на равенство. Точность сравнения 10<sup>-10</sup>. 
+6. Метод `__neg__` (унарный `-`). Возвращает новый вектор направление которого противоположно направлению вектора к которому применяется оператор.
+7. Метод `__add__` (бинарный `+`). Левый и правый операнды класса `Vector`.  Возвращает новый вектор являющийся покомпонентной суммой левого и правого операндов.
+8. Метод `__sub__` (бинарный `-`). Левый и правый операнды класса `Vector`.  Возвращает новый вектор являющийся покомпонентной разностью левого и правого операндов.
+7. Метод `__mul__` (бинарный `*`). Левый операнд класса `Vector`, правый типа `double`.  Возвращает новый вектор компоненты которого умножены на правый операнд.
+8. Метод `length`. Метод не принимает параметров и возвращает длину вектора;
+9. Метод `__mul__` (бинарный `*`). Левый и правый операнды класса `Vector`.  Возвращает вещественное число вычисляющееся как скалярное произведение векторов-операндов.
+
+Используйте код представленный ниже для проверки правильности реализации класса. Рекомендуется закомментировать все тесты и "открывать" их по одному, по мере выполнения задания.
+
+```python
+import math
+  
+def equal(a, b, e=1E-10):
+    if -e < a - b < e: return True
+    else: return False
+  
+  
+class Point:
+    pass # Класс Point из задания 36
+  
+class Vector:
+    pass # Ваш код здесь
+  
+  
+a = Vector(Point(1, 2))
+b = Vector(Point(-2, 0), Point(-1, 2))
+if a == b and b == a: print('Equality test passed')
+else: print('Equality test failed')
+  
+na  = Vector(Point(-1, -2))
+ox  = Vector(Point( 1,  0))
+nox = Vector(Point(-1,  0))
+oy  = Vector(Point( 0,  1))
+noy = Vector(Point( 0, -1))
+if a == -na and na == -a and -ox == nox and -oy == noy: print('Invert test passed')
+else: print('Invert test failed')
+  
+if ox + oy + oy == a and -ox == -a + oy + oy: print('Summation test passed')
+else: print('Summation test failed')
+  
+if -ox + oy == oy - ox and -oy + ox == ox - oy: print('Subtraction test passed')
+else: print('Subtraction test failed')
+  
+if (ox * 3 == ox + ox + ox and
+    oy * 3 == oy + oy + oy and
+    ox * (-3) == -ox - ox - ox and
+    oy * (-3) == -oy - oy - oy): print('Multiplication by number test passed')
+else: print('Multiplication by number test failed')
+  
+if (equal(ox.length(), 1) and
+    equal(oy.length(), 1) and
+    equal((ox * 3 + oy * 4).length(), 5)): print('Length test passed')
+else: print('Length test failed')
+  
+if (equal(ox*ox, ox.length()**2) and
+    equal(oy*oy, oy.length()**2) and
+    equal((ox*3 + oy*4)*(ox*3 + oy*4), (ox*3 + oy*4).length()**2)): print('Multiplication by Vector test passed')
+else: print('Multiplication by Vector test failed')
+```
+
+**Формат ввода**  
+Ввода нет.
+
+**Формат вывода**  
+Все тесты должны быть пройдены (`passed`). Если хотя бы один тест не пройден, то класс реализован не правильно (`failed`).

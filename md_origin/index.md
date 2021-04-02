@@ -8,6 +8,10 @@
 
 - [Форма регистрации темы курсовой](https://docs.google.com/forms/d/e/1FAIpQLSed3KDin4GlgMbF6ifkVimKDlfiKGf9yix-tAInFuNkmAfWSg/viewform?usp=sf_link)
 - [Оформление ВКР ФТИ](./resources/files/Oformlenie-VKR-FTI-2019.pdf)
+- Примеры оформления курсовых работ
+  - [Разработка клавиатурного тренажёра «TYPERR»](./resources/files/course_work_example/typerr.pdf)
+  - [Система управления электрической нагрузкой с помощью сети интернет](./resources/files/course_work_example/control_system.pdf)
+  - [Цифровая музыкальная студия с уклоном на быструю работу пользователя](./resources/files/course_work_example/music_studio.pdf)
 
 #### Текущий контроль 1 (15.02.2021 - 14.03.2021)
 
