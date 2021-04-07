@@ -8,7 +8,7 @@
 
 - [Форма регистрации темы курсовой](https://docs.google.com/forms/d/e/1FAIpQLSed3KDin4GlgMbF6ifkVimKDlfiKGf9yix-tAInFuNkmAfWSg/viewform?usp=sf_link)
 - [Оформление ВКР ФТИ](./resources/files/Oformlenie-VKR-FTI-2019.pdf)
-- Примеры оформления курсовых работ
+- Примеры оформления курсовых работ 2019-2020
   - [Разработка клавиатурного тренажёра «TYPERR»](./resources/files/course_work_example/typerr.pdf)
   - [Система управления электрической нагрузкой с помощью сети интернет](./resources/files/course_work_example/control_system.pdf)
   - [Цифровая музыкальная студия с уклоном на быструю работу пользователя](./resources/files/course_work_example/music_studio.pdf)
@@ -21,6 +21,13 @@
 #### Текущий контроль 2 (15.03.2021 - 11.04.2021)
 
 - [Практические заданий](./practice6.html)
+- [Лекция 4 (10.03.2021)](https://youtu.be/5-znSzcu6WM)
+- [Лекция 5 (19.03.2021)](https://youtu.be/4TYCNn0MiBY)
+- [Лекция 6 (24.03.2021)](https://youtu.be/dYyocymbLTw)
+- [Лекция 7 (02.04.2021)](https://youtu.be/GYIXUCkpnaA)
+- Дополнительные видео
+  - [Статические и не статические поля класса](https://youtu.be/Ajr-Qp8SgkI)
+  - [Демонстрация реализации класса Integer](https://youtu.be/6ebiXMUHOM0)
 
 
 
