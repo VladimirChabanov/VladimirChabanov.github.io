@@ -77,8 +77,8 @@ int main() {
 В качестве обязательных членов должны присутствовать:
 
 1. Метод `__init__`. Кроме `self` должен принимать ещё три параметра: `a1` и `a2` и `coord_system`:
-   1. Если параметр `a1` - это строка, то остальные параметры игнорируются, а сама строка парсится исходя из того, что она в формате: "(X,Y)", где X и Y вещественные координаты точки `x` и `y` в декартовой системе координат.
-   2. Если параметр `a1` - это число, то смотрим на параметр `coord_system`. Он может принимать да значения: [`Cartesian`](https://ru.wikipedia.org/wiki/Прямоугольная_система_координат) и [`Polar`](https://ru.wikipedia.org/wiki/Полярная_система_координат). Если он задан как `Cartesian`, то параметры `a1` и `a2` являются координатами `x` и `y` декартовой системы координат, если `coord_system` задан как `Polar`, то `a1` и `a2` это `r` и $\varphi$ полярной системы координат соответственно ($\varphi$ везде задаётся в радианах). По умолчанию`coord_system` задан как `Cartesian`, а `a1` и `a2` по умолчанию нули.
+   1. Если аргумент `a1` - это строка, то остальные аргументы игнорируются, а сама строка парсится исходя из того, что она в формате: "(X,Y)", где X и Y вещественные координаты точки `x` и `y` в декартовой системе координат.
+   2. Если аргумент `a1` - это число, то смотрим на аргумент `coord_system`. Он может принимать да значения: [`Cartesian`](https://ru.wikipedia.org/wiki/Прямоугольная_система_координат) и [`Polar`](https://ru.wikipedia.org/wiki/Полярная_система_координат). Если он задан как `Cartesian`, то аргументы `a1` и `a2` являются координатами `x` и `y` декартовой системы координат, если `coord_system` задан как `Polar`, то `a1` и `a2` это `r` и $\varphi$ полярной системы координат соответственно ($\varphi$ везде задаётся в радианах). По умолчанию`coord_system` задан как `Cartesian`, а `a1` и `a2` по умолчанию нули.
 2. Финализатор. Можно не объявлять.
 3. Операторы `==` (метод `__eq__`) и `!= ` (метод `__ne__`). Сравнивает два объекта класса `Point` на равенство/не равенство, при этом не играет роли в какой системе координат задавались координаты точки при создании. Если отклонение по каждой координате не превышает 10<sup>-10</sup>, то считается что это одна и та же точка. 
 4. Методы `__repr__` и `__str__`. Преобразуют объект класса `Point` в строку в формате: "(X,Y)", где X и Y заменяются на значение координат точки `x` и `y` в декартовой системе координат.
@@ -210,9 +210,9 @@ double sqr(double a) {
 В качестве обязательных членов должны присутствовать:
 
 1. Метод `__init__`. Кроме `self` должен принимать ещё два параметра: `begin` и `end` - экземпляры класса `Point` из задания 36:
-   - Если параметры не заданы, то создаётся вектор единичной длины в направлении оси $OX$.
-   - Если задан один параметр, создаётся вектор направленный из начала координат в точку переданную в качестве параметра.
-   - Если заданы оба параметра `begin` и `end`, то создаётся вектор направленный из `begin` в `end`.
+   - Если аргументы не заданы, то создаётся вектор единичной длины в направлении оси $OX$.
+   - Если задан один аргумент, создаётся вектор направленный из начала координат в точку переданную в качестве параметра.
+   - Если заданы оба аргумента`begin` и `end`, то создаётся вектор направленный из `begin` в `end`.
 2. Финализатор. Можно не объявлять.
 5. Метод `__eq__` (оператор `==`). Сравнивает два объекта класса `Vector` на равенство. Точность сравнения 10<sup>-10</sup>. 
 6. Метод `__neg__` (унарный `-`). Возвращает новый вектор направление которого противоположно направлению вектора к которому применяется оператор.
@@ -279,7 +279,7 @@ else: print('Multiplication by Vector test failed')
 Ввода нет.
 
 **Формат вывода**  
-Все тесты должны быть пройдены (`passed`). Если хотя бы один тест не пройден, то класс реализован не правильно (`failed`).
+Все тесты должны быть пройдены (`passed`). Если хотя бы один тест не пройден (`failed`), то класс реализован не правильно.
 
 
 
@@ -296,40 +296,610 @@ else: print('Multiplication by Vector test failed')
 В качестве обязательных членов должны присутствовать:
 
 1. Конструкторы:
-   - Конструктор по умолчанию. Конструктор создаёт рациональное число инициализированное нулём.
-   - Конструктор с параметром типа `int`. Конструктор принимает параметр `a` и создаёт рациональное число инициализированное $\frac{a}{1}$.
-   - Конструктор с параметром типа `double`. Конструктор принимает параметр `a` и создаёт рациональное число инициализированное:
-     - `a`, если `a` точно представимо в рациональной форме;
-     - `r` удовлетворяющим выражению: $|r-a| = min$, если `a` НЕ представимо точно в рациональной форме. То есть `r` должно быть ближайшим к `a` вещественным числом точно представимым в рациональной форме.
+   - Конструктор по умолчанию. Конструктор создаёт рациональное число инициализированное нулём;
+   - Конструктор с двумя параметрами типа `int` . Конструктор принимает параметр `a` и `b` и создаёт рациональное число инициализированное $\frac{a}{b}$. 
 2. Деструктор. По необходимости.
+3. Статический член класса `gcd` принимающий два целых числа и возвращающий [наибольший общий делитель](https://ru.wikipedia.org/wiki/Наибольший_общий_делитель).
 4. Оператор `==`. Сравнивает два объекта класса `Rational` на равенство. 
-4. Оператор бинарный `+`. Левый и правый операнды класса `Rational`.  Возвращает рациональное число являющееся суммой левого и правого операндов.
-5. Оператор бинарный `-`. Левый и правый операнды класса `Rational`.  Возвращает рациональное число являющееся разностью левого и правого операндов.
-6. Оператор бинарный `*`. Левый и правый операнды класса `Rational`.  Возвращает рациональное число являющееся произведением левого и правого операндов.
-7. Оператор бинарный `/`. Левый и правый операнды класса `Rational`.  Возвращает рациональное число частным суммой левого и правого операндов.
-8. Операторы преобразования к типам:
+5. Оператор бинарный `+`. Левый и правый операнды класса `Rational`.  Возвращает рациональное число являющееся суммой левого и правого операндов.
+6. Оператор бинарный `-`. Левый и правый операнды класса `Rational`.  Возвращает рациональное число являющееся разностью левого и правого операндов.
+7. Оператор бинарный `*`. Левый и правый операнды класса `Rational`.  Возвращает рациональное число являющееся произведением левого и правого операндов.
+8. Оператор бинарный `/`. Левый и правый операнды класса `Rational`.  Возвращает рациональное число являющееся частным левого и правого операндов.
+9. Операторы преобразования к типам:
    - `double` - возвращает вещественное число соответствующее рациональному;
    - `bool` - возвращает `false` если число равно нулю и `true` в остальных случаях;
-9. Метод `numerator ` - возвращающий числитель;
-10. Метод `denominator` - возвращающий знаменатель;
-11. Статический член класса `gcd` принимающий два целых числа и возвращающий [наибольший общий делитель](https://ru.wikipedia.org/wiki/Наибольший_общий_делитель).
+10. Метод `numerator ` - возвращающий числитель;
+11. Метод `denominator` - возвращающий знаменатель;
+12. Метод `isNaN` - возвращающий `true`, если число соответствует $\frac{0}{0}$ и `false` в противном случае. Обратите внимание NaN, с точки зрения математики - это неопределённое число, то есть любое. Поэтому он не равен ни чему, даже самому себе.
 
 Используйте код представленный ниже для проверки правильности реализации класса.
 
 ```c++
-// Тут код ля проверки
+#include <iostream>
+#include <cmath>
+  
+bool equal(double a, double b, double e = 1E-10)
+  
+class Rational;
+// Ваш код здесь
+  
+int main()
+{
+    if (Rational::gcd(91, 65) == 13 &&
+        Rational::gcd(10, 3) == 1 &&
+        Rational::gcd(-10, 3) == 1 &&
+        Rational::gcd(10, -3) == 1 &&
+        Rational::gcd(-10, -3) == 1 &&
+        Rational::gcd(30, 10) == 10 &&
+        Rational::gcd(10, 30) == 10 &&
+        Rational::gcd(0, 10) == 10 &&
+        Rational::gcd(10, 0) == 10) std::cout << "gcd test passed\n";
+    else std::cout << "gcd test failed\n";
+  
+    if (!Rational(22, 0).isNaN() &&
+        !Rational(22, 9).isNaN() &&
+        !Rational(0, 9).isNaN() &&
+        !Rational(-22, 9).isNaN() &&
+        !Rational(-22, 0).isNaN() &&
+        Rational(0, 0).isNaN() 
+        ) std::cout << "isNaN test passed\n";
+    else std::cout << "isNaN test failed\n";
+  
+    if (Rational(22, 0) == Rational(22, 0) &&
+        Rational(22, 0) == Rational(9, 0) &&
+        !(Rational(22, 0) == Rational(22, 9)) &&
+        !(Rational(22, 0) == Rational(-22, 9)) &&
+        !(Rational(22, 0) == Rational(-22, 0)) &&
+        !(Rational(22, 0) == Rational(0, 9)) &&
+        !(Rational(22, 0) == Rational(0, 0)) &&
+  
+        Rational(22, 9) == Rational(22, 9) &&
+        Rational(22, 9) == Rational(-22, -9) &&
+        Rational(22, 9) == Rational(110, 45) &&
+        Rational(22, 9) == Rational(-110, -45) &&
+        !(Rational(22, 9) == Rational(-22, 9)) &&
+        !(Rational(22, 9) == Rational(22, -9)) &&
+        !(Rational(22, 9) == Rational(9, 22)) &&
+        !(Rational(22, 9) == Rational(22, 0)) &&
+        !(Rational(22, 9) == Rational(-22, 0)) &&
+        !(Rational(22, 9) == Rational(0, 9)) &&
+        !(Rational(22, 9) == Rational(0, 0)) &&
+  
+        Rational(0, 1) == Rational(0, 1) &&
+        Rational(0, 1) == Rational(0, 9)  &&
+        Rational(0, 1) == Rational(0, -9)  &&
+        !(Rational(0, 1) == Rational(22, 9))  &&
+        !(Rational(0, 1) == Rational(-22, 9))  &&
+        !(Rational(0, 1) == Rational(22, 0)) &&
+        !(Rational(0, 1) == Rational(-22, 0)) &&
+        !(Rational(0, 1) == Rational(0, 0)) &&
+  
+        Rational(-22, 9) == Rational(-22, 9) &&
+        Rational(-22, 9) == Rational(22, -9) &&
+        Rational(-22, 9) == Rational(-110, 45) &&
+        Rational(-22, 9) == Rational(110, -45) &&
+        !(Rational(-22, 9) == Rational(-22, -9)) &&
+        !(Rational(-22, 9) == Rational(22, 9)) &&
+        !(Rational(-22, 9) == Rational(9, -22)) &&
+        !(Rational(-22, 9) == Rational(22, 0)) &&
+        !(Rational(-22, 9) == Rational(-22, 0)) &&
+        !(Rational(-22, 9) == Rational(0, 9)) &&
+        !(Rational(-22, 9) == Rational(0, 0)) &&
+  
+        Rational(-22, 0) == Rational(-22, 0) &&
+        Rational(-22, 0) == Rational(-9, 0) &&
+        !(Rational(-22, 0) == Rational(22, 9)) &&
+        !(Rational(-22, 0) == Rational(-22, 9)) &&
+        !(Rational(-22, 0) == Rational(22, 0)) &&
+        !(Rational(-22, 0) == Rational(0, 9)) &&
+        !(Rational(-22, 0) == Rational(0, 0)) &&
+  
+        !(Rational(0, 0) == Rational(0, 0))
+        ) std::cout << "Equality test passed\n";
+    else std::cout << "Equality test failed\n";
+  
+    if (Rational(22, 0) + Rational(22, 0) == Rational(22, 0) &&
+        Rational(22, 9) + Rational(22, 0) == Rational(22, 0) &&
+        Rational(0, 9) + Rational(22, 0) == Rational(22, 0) &&
+        Rational(-22, 9) + Rational(22, 0) == Rational(22, 0) &&
+        (Rational(-22, 0) + Rational(22, 0)).isNaN() &&
+  
+        Rational(22, 0) + Rational(22, 9) == Rational(22, 0) &&
+        Rational(22, 9) + Rational(22, 9) == Rational(44, 9) &&
+        Rational(0, 9) + Rational(22, 9) == Rational(22, 9) &&
+        Rational(-22, 9) + Rational(22, 9) == Rational(0, 9) &&
+        Rational(-22, 0) + Rational(22, 9) == Rational(-22, 0) &&
+  
+        Rational(22, 0) + Rational(0, 1) == Rational(22, 0) &&
+        Rational(22, 9) + Rational(0, 1) == Rational(22, 9) &&
+        Rational(0, 9) + Rational(0, 1) == Rational(0, 9) &&
+        Rational(-22, 9) + Rational(0, 1) == Rational(-22, 9) &&
+        Rational(-22, 0) + Rational(0, 1) == Rational(-22, 0) &&
+  
+        Rational(22, 0) + Rational(-22, 9) == Rational(22, 0) &&
+        Rational(22, 9) + Rational(-22, 9) == Rational(0, 9) &&
+        Rational(0, 9) + Rational(-22, 9) == Rational(-22, 9) &&
+        Rational(-22, 9) + Rational(-22, 9) == Rational(-44, 9) &&
+        Rational(-22, 0) + Rational(-22, 9) == Rational(-22, 0) &&
+  
+        (Rational(22, 0) + Rational(-22, 0)).isNaN() &&
+        Rational(22, 9) + Rational(-22, 0) == Rational(-22, 0) &&
+        Rational(0, 9) + Rational(-22, 0) == Rational(-22, 0) &&
+        Rational(-22, 9) + Rational(-22, 0) == Rational(-22, 0) &&
+        Rational(-22, 0) + Rational(-22, 0) == Rational(-22, 0) &&
+  
+        (Rational(22, 0) + Rational(0, 0)).isNaN() &&
+        (Rational(22, 9) + Rational(0, 0)).isNaN() &&
+        (Rational(0, 9) + Rational(0, 0)).isNaN() &&
+        (Rational(-22, 9) + Rational(0, 0)).isNaN() &&
+        (Rational(-22, 0) + Rational(0, 0)).isNaN()
+       ) std::cout << "Summation test passed\n";
+    else std::cout << "Summation test failed\n";
+  
+    if ((Rational(22, 0) - Rational(22, 0)).isNaN() &&
+        Rational(22, 9) - Rational(22, 0) == Rational(-22, 0) &&
+        Rational(0, 9) - Rational(22, 0) == Rational(-22, 0) &&
+        Rational(-22, 9) - Rational(22, 0) == Rational(-22, 0) &&
+        Rational(-22, 0) - Rational(22, 0) == Rational(-22, 0) &&
+  
+        Rational(22, 0) - Rational(22, 9) == Rational(22, 0) &&
+        Rational(22, 9) - Rational(22, 9) == Rational(0, 9) &&
+        Rational(0, 9) - Rational(22, 9) == Rational(-22, 9) &&
+        Rational(-22, 9) - Rational(22, 9) == Rational(-44, 9) &&
+        Rational(-22, 0) - Rational(22, 9) == Rational(-22, 0) &&
+  
+        Rational(22, 0) - Rational(0, 1) == Rational(22, 0) &&
+        Rational(22, 9) - Rational(0, 1) == Rational(22, 9) &&
+        Rational(0, 9) - Rational(0, 1) == Rational(0, 9) &&
+        Rational(-22, 9) - Rational(0, 1) == Rational(-22, 9) &&
+        Rational(-22, 0) - Rational(0, 1) == Rational(-22, 0) &&
+  
+        Rational(22, 0) - Rational(-22, 9) == Rational(22, 0) &&
+        Rational(22, 9) - Rational(-22, 9) == Rational(44, 9) &&
+        Rational(0, 9) - Rational(-22, 9) == Rational(22, 9) &&
+        Rational(-22, 9) - Rational(-22, 9) == Rational(0, 9) &&
+        Rational(-22, 0) - Rational(-22, 9) == Rational(-22, 0) &&
+  
+        Rational(22, 0) - Rational(-22, 0) == Rational(22, 0) &&
+        Rational(22, 9) - Rational(-22, 0) == Rational(22, 0) &&
+        Rational(0, 9) - Rational(-22, 0) == Rational(22, 0) &&
+        Rational(-22, 9) - Rational(-22, 0) == Rational(22, 0) &&
+        (Rational(-22, 0) - Rational(-22, 0)).isNaN() &&
+  
+        (Rational(22, 0) - Rational(0, 0)).isNaN() &&
+        (Rational(22, 9) - Rational(0, 0)).isNaN() &&
+        (Rational(0, 9) - Rational(0, 0)).isNaN() &&
+        (Rational(-22, 9) - Rational(0, 0)).isNaN() &&
+        (Rational(-22, 0) - Rational(0, 0)).isNaN()
+        ) std::cout << "Subtraction test passed\n";
+    else std::cout << "Subtraction test failed\n";
+  
+    if (Rational(22, 0) * Rational(22, 0) == Rational(22, 0) &&
+        Rational(22, 9) * Rational(22, 0) == Rational(22, 0) &&
+        (Rational(0, 9) * Rational(22, 0)).isNaN() &&
+        Rational(-22, 9) * Rational(22, 0) == Rational(-22, 0) &&
+        Rational(-22, 0) * Rational(22, 0) == Rational(-22, 0) &&
+  
+        Rational(22, 0) * Rational(22, 9) == Rational(22, 0) &&
+        Rational(22, 9) * Rational(22, 9) == Rational(22*22, 9*9) &&
+        Rational(0, 9) * Rational(22, 9) == Rational(0, 9) &&
+        Rational(-22, 9) * Rational(22, 9) == Rational(-22*22, 9*9) &&
+        Rational(-22, 0) * Rational(22, 9) == Rational(-22, 0) &&
+  
+        (Rational(22, 0) * Rational(0, 1)).isNaN() &&
+        Rational(22, 9) * Rational(0, 1) == Rational(0, 9) &&
+        Rational(0, 9) * Rational(0, 1) == Rational(0, 9) &&
+        Rational(-22, 9) * Rational(0, 1) == Rational(0, 9) &&
+        (Rational(-22, 0) * Rational(0, 1)).isNaN() &&
+  
+        Rational(22, 0) * Rational(-22, 9) == Rational(-22, 0) &&
+        Rational(22, 9) * Rational(-22, 9) == Rational(-22*22, 9*9) &&
+        Rational(0, 9) * Rational(-22, 9) == Rational(0, 9) &&
+        Rational(-22, 9) * Rational(-22, 9) == Rational(22*22, 9*9) &&
+        Rational(-22, 0) * Rational(-22, 9) == Rational(22, 0) &&
+  
+        Rational(22, 0) * Rational(-22, 0) == Rational(-22, 0) &&
+        Rational(22, 9) * Rational(-22, 0) == Rational(-22, 0) &&
+        (Rational(0, 9) * Rational(-22, 0)).isNaN() &&
+        Rational(-22, 9) * Rational(-22, 0) == Rational(22, 0) &&
+        Rational(-22, 0) * Rational(-22, 0) == Rational(22, 0) &&
+  
+        (Rational(22, 0) * Rational(0, 0)).isNaN() &&
+        (Rational(22, 9) * Rational(0, 0)).isNaN() &&
+        (Rational(0, 9) * Rational(0, 0)).isNaN() &&
+        (Rational(-22, 9) * Rational(0, 0)).isNaN() &&
+        (Rational(-22, 0) * Rational(0, 0)).isNaN()
+        ) std::cout << "Multiplication test passed\n";
+    else std::cout << "Multiplication test failed\n";
+  
+    if ((Rational(22, 0) / Rational(22, 0)).isNaN() &&
+        Rational(22, 9) / Rational(22, 0) == Rational(0, 9) &&
+        Rational(0, 9) / Rational(22, 0) == Rational(0, 9) &&
+        Rational(-22, 9) / Rational(22, 0) == Rational(0, 9) &&
+        (Rational(-22, 0) / Rational(22, 0)).isNaN() &&
+  
+        Rational(22, 0) / Rational(22, 9) == Rational(22, 0) &&
+        Rational(22, 9) / Rational(22, 9) == Rational(9, 9) &&
+        Rational(0, 9) / Rational(22, 9) == Rational(0, 9) &&
+        Rational(-22, 9) / Rational(22, 9) == Rational(-9, 9) &&
+        Rational(-22, 0) / Rational(22, 9) == Rational(-22, 0) &&
+  
+        Rational(22, 0) / Rational(0, 1) == Rational(22, 0) &&
+        Rational(22, 9) / Rational(0, 1) == Rational(22, 0) &&
+        (Rational(0, 9) / Rational(0, 1)).isNaN() &&
+        Rational(-22, 9) / Rational(0, 1) == Rational(-22, 0) &&
+        Rational(-22, 0) / Rational(0, 1) == Rational(-22, 0) &&
+  
+        Rational(22, 0) / Rational(-22, 9) == Rational(-22, 0) &&
+        Rational(22, 9) / Rational(-22, 9) == Rational(-9, 9) &&
+        Rational(0, 9) / Rational(-22, 9) == Rational(0, 9) &&
+        Rational(-22, 9) / Rational(-22, 9) == Rational(9, 9) &&
+        Rational(-22, 0) / Rational(-22, 9) == Rational(22, 0) &&
+  
+        (Rational(22, 0) / Rational(-22, 0)).isNaN() &&
+        Rational(22, 9) / Rational(-22, 0) == Rational(0, 9) &&
+        Rational(0, 9) / Rational(-22, 0) == Rational(0, 9) &&
+        Rational(-22, 9) / Rational(-22, 0) == Rational(0, 9) &&
+        (Rational(-22, 0) / Rational(-22, 0)).isNaN() &&
+  
+        (Rational(22, 0) / Rational(0, 0)).isNaN() &&
+        (Rational(22, 9) / Rational(0, 0)).isNaN() &&
+        (Rational(0, 9) / Rational(0, 0)).isNaN() &&
+        (Rational(-22, 9) / Rational(0, 0)).isNaN() &&
+        (Rational(-22, 0) / Rational(0, 0)).isNaN()
+        ) std::cout << "Division test passed\n";
+    else std::cout << "Division test failed\n";
+  
+    if (equal(Rational(-22, -9), 22/9.0) &&
+        equal(Rational(-9, -9), 1) &&
+        equal(Rational(-6, -9), 6/9.0) &&
+        equal(Rational(0, -9), 0) &&
+        equal(Rational(6, -9), -6/9.0) &&
+        equal(Rational(9, -9), -1) &&
+        equal(Rational(22, -9), -22/9.0) &&
+        std::isinf((double)Rational(-9, 0)) &&
+        std::isnan((double)Rational(0, 0)) &&
+        std::isinf((double)Rational(9, 0)) &&
+        equal(Rational(-22, 9), -22/9.0) &&
+        equal(Rational(-9, 9), -1) &&
+        equal(Rational(-6, 9), -6/9.0) &&
+        equal(Rational(0, 9), 0) &&
+        equal(Rational(6, 9), 6/9.0) &&
+        equal(Rational(9, 9), 1) &&
+        equal(Rational(22, 9), 22/9.0)) std::cout << "Conversion to double test passed\n";
+    else std::cout << "Conversion to double test failed\n";
+  
+    if (Rational(-22, -9) &&
+        Rational(-9, -9) &&
+        Rational(-6, -9) &&
+        !Rational(0, -9) &&
+        Rational(6, -9) &&
+        Rational(9, -9) &&
+        Rational(22, -9) &&
+        Rational(-9, 0) &&
+        Rational(0, 0) &&
+        Rational(9, 0) &&
+        Rational(-22, 9) &&
+        Rational(-9, 9) &&
+        Rational(-6, 9) &&
+        !Rational(0, 9) &&
+        Rational(6, 9) &&
+        Rational(9, 9) &&
+        Rational(22, 9)) std::cout << "Conversion to bool test passed\n";
+    else std::cout << "Conversion to bool test failed\n";
+}
+  
+bool equal(double a, double b, double e) {
+    if (-e < a - b && a - b < e) return true;
+    else return false;
+}
 ```
 
 ***Python***
 
 По аналогии с заданием для **С++** реализуйте класс `Rational`.
 
+В качестве обязательных членов должны присутствовать:
+
+1. Метод `__init__`. Кроме `self` должен принимать ещё два параметра: `numerator ` и `denominator` - целые числа:
+   - Если аргументы не заданы. То создаётся рациональное число инициализированное нулём;
+   - Если задан только `numerator`. То создаётся рациональное число инициализированное $\frac{numerator}{1}$. 
+   - Если заданы оба аргумента. То создаётся рациональное число инициализированное $\frac{numerator}{denominator}$. 
+2. Финализатор. По необходимости.
+3. Статический метод `gcd` принимающий два целых числа и возвращающий [наибольший общий делитель](https://ru.wikipedia.org/wiki/Наибольший_общий_делитель).
+4. Метод `__eq__` (оператор `==`). Сравнивает два объекта класса `Rational` на равенство. 
+5. Метод `__add__` (бинарный `+`). Левый и правый операнды класса `Rational`.  Возвращает рациональное число являющееся суммой левого и правого операндов.
+6. Метод `__sub__` (бинарный `-`). Левый и правый операнды класса `Rational`.  Возвращает рациональное число являющееся разностью левого и правого операндов.
+7. Метод `__mul__` (оператор `*`). Левый и правый операнды класса `Rational`.  Возвращает рациональное число являющееся произведением левого и правого операндов.
+8. Метод `__truediv__` (оператор `/`). Левый и правый операнды класса `Rational`.  Возвращает рациональное число являющееся частным левого и правого операндов.
+9. Операторы преобразования к типам:
+   - `__float__` - возвращает вещественное число соответствующее рациональному;
+   - `__bool__` - возвращает `false` если число равно нулю и `true` в остальных случаях;
+10. Метод `numerator ` - возвращающий числитель;
+11. Метод `denominator` - возвращающий знаменатель;
+12. Метод `isNaN` - возвращающий `True`, если число соответствует $\frac{0}{0}$ и `False` в противном случае. Обратите внимание NaN, с точки зрения математики - это неопределённое число, то есть любое. Поэтому он не равен ни чему, даже самому себе.
+
+Используйте код представленный ниже для проверки правильности реализации класса:
+
 ```python
-# Тут код ля проверки
+import math
+  
+class Rational:
+    pass # Ваш код здесь
+  
+def equal(a, b, e=1E-10):
+    if -e < a - b < e: return True
+    else: return False
+  
+if (Rational.gcd(91, 65) == 13 and
+    Rational.gcd(10, 3) == 1 and
+    Rational.gcd(-10, 3) == 1 and
+    Rational.gcd(10, -3) == 1 and
+    Rational.gcd(-10, -3) == 1 and
+    Rational.gcd(30, 10) == 10 and
+    Rational.gcd(10, 30) == 10 and
+    Rational.gcd(0, 10) == 10 and
+    Rational.gcd(10, 0) == 10
+    ): print('gcd test passed')
+else: print('gcd test failed')
+  
+if (not Rational(22, 0).isNaN() and
+    not Rational(22, 9).isNaN() and
+    not Rational(0, 9).isNaN() and
+    not Rational(-22, 9).isNaN() and
+    not Rational(-22, 0).isNaN() and
+    Rational(0, 0).isNaN()
+    ): print('isNaN test passed')
+else: print('isNaN test failed')
+  
+if (Rational(22, 0) == Rational(22, 0) and
+    Rational(22, 0) == Rational(9, 0) and
+    not(Rational(22, 0) == Rational(22, 9)) and
+    not(Rational(22, 0) == Rational(-22, 9)) and
+    not(Rational(22, 0) == Rational(-22, 0)) and
+    not(Rational(22, 0) == Rational(0, 9)) and
+    not(Rational(22, 0) == Rational(0, 0)) and
+  
+    Rational(22, 9) == Rational(22, 9) and
+    Rational(22, 9) == Rational(-22, -9) and
+    Rational(22, 9) == Rational(110, 45) and
+    Rational(22, 9) == Rational(-110, -45) and
+    not(Rational(22, 9) == Rational(-22, 9)) and
+    not(Rational(22, 9) == Rational(22, -9)) and
+    not(Rational(22, 9) == Rational(9, 22)) and
+    not(Rational(22, 9) == Rational(22, 0)) and
+    not(Rational(22, 9) == Rational(-22, 0)) and
+    not(Rational(22, 9) == Rational(0, 9)) and
+    not(Rational(22, 9) == Rational(0, 0)) and
+  
+    Rational(0, 1) == Rational(0, 1) and
+    Rational(0, 1) == Rational(0, 9)  and
+    Rational(0, 1) == Rational(0, -9)  and
+    not(Rational(0, 1) == Rational(22, 9))  and
+    not(Rational(0, 1) == Rational(-22, 9))  and
+    not(Rational(0, 1) == Rational(22, 0)) and
+    not(Rational(0, 1) == Rational(-22, 0)) and
+    not(Rational(0, 1) == Rational(0, 0)) and
+  
+    Rational(-22, 9) == Rational(-22, 9) and
+    Rational(-22, 9) == Rational(22, -9) and
+    Rational(-22, 9) == Rational(-110, 45) and
+    Rational(-22, 9) == Rational(110, -45) and
+    not(Rational(-22, 9) == Rational(-22, -9)) and
+    not(Rational(-22, 9) == Rational(22, 9)) and
+    not(Rational(-22, 9) == Rational(9, -22)) and
+    not(Rational(-22, 9) == Rational(22, 0)) and
+    not(Rational(-22, 9) == Rational(-22, 0)) and
+    not(Rational(-22, 9) == Rational(0, 9)) and
+    not(Rational(-22, 9) == Rational(0, 0)) and
+  
+    Rational(-22, 0) == Rational(-22, 0) and
+    Rational(-22, 0) == Rational(-9, 0) and
+    not(Rational(-22, 0) == Rational(22, 9)) and
+    not(Rational(-22, 0) == Rational(-22, 9)) and
+    not(Rational(-22, 0) == Rational(22, 0)) and
+    not(Rational(-22, 0) == Rational(0, 9)) and
+    not(Rational(-22, 0) == Rational(0, 0)) and
+  
+    not(Rational(0, 0) == Rational(0, 0))
+    ): print('Equality test passed')
+else: print('Equality test failed')
+  
+if (Rational(22, 0) + Rational(22, 0) == Rational(22, 0) and
+    Rational(22, 9) + Rational(22, 0) == Rational(22, 0) and
+    Rational(0, 9) + Rational(22, 0) == Rational(22, 0) and
+    Rational(-22, 9) + Rational(22, 0) == Rational(22, 0) and
+    (Rational(-22, 0) + Rational(22, 0)).isNaN() and
+  
+    Rational(22, 0) + Rational(22, 9) == Rational(22, 0) and
+    Rational(22, 9) + Rational(22, 9) == Rational(44, 9) and
+    Rational(0, 9) + Rational(22, 9) == Rational(22, 9) and
+    Rational(-22, 9) + Rational(22, 9) == Rational(0, 9) and
+    Rational(-22, 0) + Rational(22, 9) == Rational(-22, 0) and
+  
+    Rational(22, 0) + Rational(0, 1) == Rational(22, 0) and
+    Rational(22, 9) + Rational(0, 1) == Rational(22, 9) and
+    Rational(0, 9) + Rational(0, 1) == Rational(0, 9) and
+    Rational(-22, 9) + Rational(0, 1) == Rational(-22, 9) and
+    Rational(-22, 0) + Rational(0, 1) == Rational(-22, 0) and
+  
+    Rational(22, 0) + Rational(-22, 9) == Rational(22, 0) and
+    Rational(22, 9) + Rational(-22, 9) == Rational(0, 9) and
+    Rational(0, 9) + Rational(-22, 9) == Rational(-22, 9) and
+    Rational(-22, 9) + Rational(-22, 9) == Rational(-44, 9) and
+    Rational(-22, 0) + Rational(-22, 9) == Rational(-22, 0) and
+  
+    (Rational(22, 0) + Rational(-22, 0)).isNaN() and
+    Rational(22, 9) + Rational(-22, 0) == Rational(-22, 0) and
+    Rational(0, 9) + Rational(-22, 0) == Rational(-22, 0) and
+    Rational(-22, 9) + Rational(-22, 0) == Rational(-22, 0) and
+    Rational(-22, 0) + Rational(-22, 0) == Rational(-22, 0) and
+  
+    (Rational(22, 0) + Rational(0, 0)).isNaN() and
+    (Rational(22, 9) + Rational(0, 0)).isNaN() and
+    (Rational(0, 9) + Rational(0, 0)).isNaN() and
+    (Rational(-22, 9) + Rational(0, 0)).isNaN() and
+    (Rational(-22, 0) + Rational(0, 0)).isNaN()
+    ): print('Summation test passed')
+else: print('Summation test failed')
+  
+if ((Rational(22, 0) - Rational(22, 0)).isNaN() and
+    Rational(22, 9) - Rational(22, 0) == Rational(-22, 0) and
+    Rational(0, 9) - Rational(22, 0) == Rational(-22, 0) and
+    Rational(-22, 9) - Rational(22, 0) == Rational(-22, 0) and
+    Rational(-22, 0) - Rational(22, 0) == Rational(-22, 0) and
+  
+    Rational(22, 0) - Rational(22, 9) == Rational(22, 0) and
+    Rational(22, 9) - Rational(22, 9) == Rational(0, 9) and
+    Rational(0, 9) - Rational(22, 9) == Rational(-22, 9) and
+    Rational(-22, 9) - Rational(22, 9) == Rational(-44, 9) and
+    Rational(-22, 0) - Rational(22, 9) == Rational(-22, 0) and
+  
+    Rational(22, 0) - Rational(0, 1) == Rational(22, 0) and
+    Rational(22, 9) - Rational(0, 1) == Rational(22, 9) and
+    Rational(0, 9) - Rational(0, 1) == Rational(0, 9) and
+    Rational(-22, 9) - Rational(0, 1) == Rational(-22, 9) and
+    Rational(-22, 0) - Rational(0, 1) == Rational(-22, 0) and
+  
+    Rational(22, 0) - Rational(-22, 9) == Rational(22, 0) and
+    Rational(22, 9) - Rational(-22, 9) == Rational(44, 9) and
+    Rational(0, 9) - Rational(-22, 9) == Rational(22, 9) and
+    Rational(-22, 9) - Rational(-22, 9) == Rational(0, 9) and
+    Rational(-22, 0) - Rational(-22, 9) == Rational(-22, 0) and
+  
+    Rational(22, 0) - Rational(-22, 0) == Rational(22, 0) and
+    Rational(22, 9) - Rational(-22, 0) == Rational(22, 0) and
+    Rational(0, 9) - Rational(-22, 0) == Rational(22, 0) and
+    Rational(-22, 9) - Rational(-22, 0) == Rational(22, 0) and
+    (Rational(-22, 0) - Rational(-22, 0)).isNaN() and
+  
+    (Rational(22, 0) - Rational(0, 0)).isNaN() and
+    (Rational(22, 9) - Rational(0, 0)).isNaN() and
+    (Rational(0, 9) - Rational(0, 0)).isNaN() and
+    (Rational(-22, 9) - Rational(0, 0)).isNaN() and
+    (Rational(-22, 0) - Rational(0, 0)).isNaN()
+    ): print('Subtraction test passed')
+else: print('Subtraction test failed')
+  
+if (Rational(22, 0) * Rational(22, 0) == Rational(22, 0) and
+    Rational(22, 9) * Rational(22, 0) == Rational(22, 0) and
+    (Rational(0, 9) * Rational(22, 0)).isNaN() and
+    Rational(-22, 9) * Rational(22, 0) == Rational(-22, 0) and
+    Rational(-22, 0) * Rational(22, 0) == Rational(-22, 0) and
+  
+    Rational(22, 0) * Rational(22, 9) == Rational(22, 0) and
+    Rational(22, 9) * Rational(22, 9) == Rational(22*22, 9*9) and
+    Rational(0, 9) * Rational(22, 9) == Rational(0, 9) and
+    Rational(-22, 9) * Rational(22, 9) == Rational(-22*22, 9*9) and
+    Rational(-22, 0) * Rational(22, 9) == Rational(-22, 0) and
+  
+    (Rational(22, 0) * Rational(0, 1)).isNaN() and
+    Rational(22, 9) * Rational(0, 1) == Rational(0, 9) and
+    Rational(0, 9) * Rational(0, 1) == Rational(0, 9) and
+    Rational(-22, 9) * Rational(0, 1) == Rational(0, 9) and
+    (Rational(-22, 0) * Rational(0, 1)).isNaN() and
+  
+    Rational(22, 0) * Rational(-22, 9) == Rational(-22, 0) and
+    Rational(22, 9) * Rational(-22, 9) == Rational(-22*22, 9*9) and
+    Rational(0, 9) * Rational(-22, 9) == Rational(0, 9) and
+    Rational(-22, 9) * Rational(-22, 9) == Rational(22*22, 9*9) and
+    Rational(-22, 0) * Rational(-22, 9) == Rational(22, 0) and
+  
+    Rational(22, 0) * Rational(-22, 0) == Rational(-22, 0) and
+    Rational(22, 9) * Rational(-22, 0) == Rational(-22, 0) and
+    (Rational(0, 9) * Rational(-22, 0)).isNaN() and
+    Rational(-22, 9) * Rational(-22, 0) == Rational(22, 0) and
+    Rational(-22, 0) * Rational(-22, 0) == Rational(22, 0) and
+  
+    (Rational(22, 0) * Rational(0, 0)).isNaN() and
+    (Rational(22, 9) * Rational(0, 0)).isNaN() and
+    (Rational(0, 9) * Rational(0, 0)).isNaN() and
+    (Rational(-22, 9) * Rational(0, 0)).isNaN() and
+    (Rational(-22, 0) * Rational(0, 0)).isNaN()
+    ): print('Multiplication test passed')
+else: print('Multiplication test failed')
+  
+if ((Rational(22, 0) / Rational(22, 0)).isNaN() and
+    Rational(22, 9) / Rational(22, 0) == Rational(0, 9) and
+    Rational(0, 9) / Rational(22, 0) == Rational(0, 9) and
+    Rational(-22, 9) / Rational(22, 0) == Rational(0, 9) and
+    (Rational(-22, 0) / Rational(22, 0)).isNaN() and
+  
+    Rational(22, 0) / Rational(22, 9) == Rational(22, 0) and
+    Rational(22, 9) / Rational(22, 9) == Rational(9, 9) and
+    Rational(0, 9) / Rational(22, 9) == Rational(0, 9) and
+    Rational(-22, 9) / Rational(22, 9) == Rational(-9, 9) and
+    Rational(-22, 0) / Rational(22, 9) == Rational(-22, 0) and
+  
+    Rational(22, 0) / Rational(0, 1) == Rational(22, 0) and
+    Rational(22, 9) / Rational(0, 1) == Rational(22, 0) and
+    (Rational(0, 9) / Rational(0, 1)).isNaN() and
+    Rational(-22, 9) / Rational(0, 1) == Rational(-22, 0) and
+    Rational(-22, 0) / Rational(0, 1) == Rational(-22, 0) and
+  
+    Rational(22, 0) / Rational(-22, 9) == Rational(-22, 0) and
+    Rational(22, 9) / Rational(-22, 9) == Rational(-9, 9) and
+    Rational(0, 9) / Rational(-22, 9) == Rational(0, 9) and
+    Rational(-22, 9) / Rational(-22, 9) == Rational(9, 9) and
+    Rational(-22, 0) / Rational(-22, 9) == Rational(22, 0) and
+  
+    (Rational(22, 0) / Rational(-22, 0)).isNaN() and
+    Rational(22, 9) / Rational(-22, 0) == Rational(0, 9) and
+    Rational(0, 9) / Rational(-22, 0) == Rational(0, 9) and
+    Rational(-22, 9) / Rational(-22, 0) == Rational(0, 9) and
+    (Rational(-22, 0) / Rational(-22, 0)).isNaN() and
+  
+    (Rational(22, 0) / Rational(0, 0)).isNaN() and
+    (Rational(22, 9) / Rational(0, 0)).isNaN() and
+    (Rational(0, 9) / Rational(0, 0)).isNaN() and
+    (Rational(-22, 9) / Rational(0, 0)).isNaN() and
+    (Rational(-22, 0) / Rational(0, 0)).isNaN()
+    ): print('Division test passed')
+else: print('Division test failed')
+  
+if (equal(float(Rational(-22, -9)), 22/9.0) and
+    equal(float(Rational(-9, -9)), 1) and
+    equal(float(Rational(-6, -9)), 6/9.0) and
+    equal(float(Rational(0, -9)), 0) and
+    equal(float(Rational(6, -9)), -6/9.0) and
+    equal(float(Rational(9, -9)), -1) and
+    equal(float(Rational(22, -9)), -22/9.0) and
+    math.isinf(float(Rational(-9, 0))) and
+    math.isnan(float(Rational(0, 0))) and
+    math.isinf(float(Rational(9, 0))) and
+    equal(float(Rational(-22, 9)), -22/9.0) and
+    equal(float(Rational(-9, 9)), -1) and
+    equal(float(Rational(-6, 9)), -6/9.0) and
+    equal(float(Rational(0, 9)), 0) and
+    equal(float(Rational(6, 9)), 6/9.0) and
+    equal(float(Rational(9, 9)), 1) and
+    equal(float(Rational(22, 9)), 22/9.0)
+    ): print('Conversion to double test passed')
+else: print('Conversion to double test failed')
+  
+if (bool(Rational(-22, -9)) and
+    bool(Rational(-9, -9)) and
+    bool(Rational(-6, -9)) and
+    not bool(Rational(0, -9)) and
+    bool(Rational(6, -9)) and
+    bool(Rational(9, -9)) and
+    bool(Rational(22, -9)) and
+    bool(Rational(-9, 0)) and
+    bool(Rational(0, 0)) and
+    bool(Rational(9, 0)) and
+    bool(Rational(-22, 9)) and
+    bool(Rational(-9, 9)) and
+    bool(Rational(-6, 9)) and
+    not bool(Rational(0, 9)) and
+    bool(Rational(6, 9)) and
+    bool(Rational(9, 9)) and
+    bool(Rational(22, 9))
+    ): print('Conversion to bool test passed')
+else: print('Conversion to bool test failed')
 ```
 
 **Формат ввода**  
 Ввода нет.
 
 **Формат вывода**  
-Все тесты должны быть пройдены (`passed`). Если хотя бы один тест не пройден, то класс реализован не правильно (`failed`).
+Все тесты должны быть пройдены (`passed`). Если хотя бы один тест не пройден (`failed`), то класс реализован не правильно.
