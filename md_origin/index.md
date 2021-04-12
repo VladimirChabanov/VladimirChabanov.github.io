@@ -15,16 +15,17 @@
 
 #### Текущий контроль 1 (15.02.2021 - 14.03.2021)
 
-- [Практические заданий](./practice5.html)
+- [Практические задания](./practice5.html)
 - [Лабораторная работа №4](./lab4.html)
-
-#### Текущий контроль 2 (15.03.2021 - 11.04.2021)
-
-- [Практические заданий](./practice6.html)
 - [Лекция 4 (10.03.2021)](https://youtu.be/5-znSzcu6WM)
+
+#### Текущий контроль 2 (15.03.2021 - 18.04.2021)
+
+- [Практические задания](./practice6.html)
 - [Лекция 5 (19.03.2021)](https://youtu.be/4TYCNn0MiBY)
 - [Лекция 6 (24.03.2021)](https://youtu.be/dYyocymbLTw)
 - [Лекция 7 (02.04.2021)](https://youtu.be/GYIXUCkpnaA)
+- [Лекция 8 (07.04.2021)](https://youtu.be/7ifZ4yk8yLk)
 - Дополнительные видео
   - [Статические и не статические поля класса](https://youtu.be/Ajr-Qp8SgkI)
   - [Демонстрация реализации класса Integer](https://youtu.be/6ebiXMUHOM0)
@@ -50,7 +51,7 @@
 
 #### Текущий контроль 1
 
-- [Практические заданий](./practice1.html)
+- [Практические задания](./practice1.html)
 - [Тест Блок 2 (06-10)](https://www.classmarker.com/online-test/start/?quiz=7695f7a2821a44ad)
 - [Тест Блок 3 (11-15)](https://www.classmarker.com/online-test/start/?quiz=mv95f90bdad343b3)
 
