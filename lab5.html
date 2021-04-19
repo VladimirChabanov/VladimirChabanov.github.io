@@ -1,0 +1,660 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>lab5</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-require-zoom-fix foreignobject { font-size: var(--mermaid-font-zoom); }
+
+
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background: inherit; }
+.CodeMirror-scroll { overflow: auto hidden; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); background: inherit; white-space: nowrap; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background: inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 30px; z-index: 3; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: 0px 0px !important; border: none !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-radius: 0px; border-width: 0px; background: 0px 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; overflow-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
+.CodeMirror-wrap pre { overflow-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right: 30px solid transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right: none; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background: rgba(255, 255, 0, 0.4); }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border-top: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
+}
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+/*
+.md-fences{
+  margin-left: 40px;
+}
+*/
+
+code {
+  font-size: 85%;
+  padding: 0.2em 0.4em;
+  border-radius: 6px;
+}
+
+[data-tooltip] {
+    position: relative; /* Относительное позиционирование */ 
+   }
+   [data-tooltip]::after {
+    content: attr(data-tooltip); /* Выводим текст */
+    position: absolute; /* Абсолютное позиционирование */
+    width: 600px;  /* Ширина подсказки */
+    left: 50%; top: 0; /* Положение подсказки */
+    background: #3989c9; /* Синий цвет фона */
+    color: #fff; /* Цвет текста */
+    padding: 0.5em; /* Поля вокруг текста */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Параметры тени */
+    pointer-events: none; /* Подсказка */
+    opacity: 0; /* Подсказка невидима */
+    transition: 1s; /* Время появления подсказки */
+    z-index: 5;
+   } 
+   [data-tooltip]:hover::after {
+    opacity: 1; /* Показываем подсказку */
+    top: 2em; /* Положение подсказки */
+   }
+</style>
+</head>
+<body class='typora-export os-windows'>
+<div id='write'  class=''><h1><a name="лабораторная-работа-№5-стеганография" class="md-header-anchor"></a><span>Лабораторная работа №5 Стеганография</span></h1><p><strong><span>Цель:</span></strong></p><ol start='' ><li><span>Изучить базовые встроенные элементы фреймворка Qt предназначенные для создания приложений с графическим интерфейсом пользователя (GUI);</span></li><li><span>Изучить сигнально-слотовую систему, как один из способов организации взаимодействия компонентов GUI;</span></li><li><span>Получить практический навык работы с побитовыми операторами.</span></li></ol><h3><a name="постановка-задачи" class="md-header-anchor"></a><span>Постановка задачи</span></h3><p><span>Создать десктоп приложение с GUI позволяющее сохранять текстовую информацию в изображение формата </span><em><span>png</span></em><span> без видимого изменения исходного изображения. Приложение должно позволять сохранять текст в картинку и извлекать текст из картинки.</span></p><h3><a name="ход-работы" class="md-header-anchor"></a><span>Ход работы</span></h3><h4><a name="0-введение" class="md-header-anchor"></a><span>0. Введение</span></h4><p><span>Изображение представляется в виде двумерной матрицы, элементом которой является пиксель.</span></p><p><span>Координаты каждого пикселя определяются парой чисел </span><strong><span>X</span></strong><span> и </span><strong><span>Y</span></strong><span> в указанном порядке. Начало отсчёта расположено в левом верхнем углу, </span><strong><span>X</span></strong><span> начинается с нуля и увеличивается слева на право, </span><strong><span>Y</span></strong><span> увеличивается сверху вниз. Размер изображения по </span><strong><span>X</span></strong><span> называется шириной (</span><em><span>width</span></em><span>) изображения, по </span><strong><span>Y</span></strong><span> - высотой (</span><em><span>height</span></em><span>) изображения.</span></p><p><img src="./lab5_files/img/pixel_coord.png" referrerpolicy="no-referrer"></p><center><i>Рис. 1. Матричное представление изображения</i></center><p><span>Основная характеристика пикселя - это его цвет. В зависимости от типа изображения, </span><a href='https://ru.wikipedia.org/wiki/Глубина_цвета'><span>глубины цвета</span></a><span> и наличия альфа канала информация о цвете пикселя может хранится в разном виде, например:</span></p><ul><li><span>1 бит на пиксель. 0 - для одного цвета (например чёрного) и 1 для другого (например белого);</span></li><li><span>одно целое число, которое является номером цвета в таблице цветов. Сама таблица может меняться в зависимости от изображения;</span></li><li><span>группа чисел (каналы), каждое из которых определяет интенсивность одного из базовых цветов. Каналы могут быть заданы в разном порядке: ARGB, RGBA, BGR, CMYK и др.</span></li></ul><p><span>В лабораторной работе будем считать, что информация о цвете пикселя определяется тремя отдельными каналами </span><b><span>R</span></b><span>ed, </span><b><span>G</span></b><span>reen, </span><b><span>B</span></b><span>lue. Каждый из каналов задаётся целым числом в диапазоне [0..255]. Каналы заданы в порядке: </span><strong><span>RGB</span></strong><span>.</span></p><p><img src="./lab5_files/img/pixel_color.png" referrerpolicy="no-referrer"></p><center><i>Рис. 2. RGB предствление цвета пикселя</i></center><h4><a name="1-подготовка-графического-интерфейса" class="md-header-anchor"></a><span>1. Подготовка графического интерфейса</span></h4><p><span>Предполагается, что у вас уже установлен Qt framework 6 или PySide6. Если нет, то перед выполнением этого раздела установите. Вместо 6й версии можно использовать другую, вместо PySide можно использовать PyQt.</span></p><ol start='' ><li><p><span>Откройте дизайнер графического интерфейса Qt Designer.</span></p><ul><li><p><span>Если установлен Qt framework:</span></p><ul><li><p><span>Через поиск приложений. Откройте меню Пуск и начните набирать Designer. Выберите любую из доступных версий.  </span></p><center><img src="./lab5_files/img/Designer.png"><br><i>Рис. 3. Меню Пуск</i></center></li><li><p><span>Найти файл </span><em><span>designer.exe</span></em><span> вручную. Зайдите в корневую папку с установленным Qt </span><strong><span>→</span></strong><span> зайдите в папку с нужной версией фреймворка </span><strong><span>→</span></strong><span> затем в папку с инструментами сборки </span><strong><span>→</span></strong><span> перейдите в папку </span><em><span>bin</span></em><span>.</span><br/><span>Путь может выглядеть, например так:  </span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang=""><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">C:\Qt\6.0.1\mingw81_64\bin</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">C:\Qt\5.14.2\mingw73_64\bin</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 46px;"></div><div class="CodeMirror-gutters" style="display: none; height: 46px;"></div></div></div></pre></li></ul></li><li><p><span>Если установлен PySide:</span></p><ul><li><p><span>Перейдите в папку с интерпретатором Python </span><strong><span>→</span></strong><span> перейдите в папку </span><em><span>Lib</span></em><span> </span><strong><span>→</span></strong><span> перейдите в папку </span><em><span>site-packages</span></em><span> </span><strong><span>→</span></strong><span> перейдите в папку </span><em><span>PySide6</span></em><span> </span><strong><span>→</span></strong><span> запустите </span><em><span>designer.exe</span></em><span>.</span><br/><span>Путь может выглядеть, например так:  </span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang=""><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">C:\Users\Professional\AppData\Local\Programs\Python\Python39\Lib\site-packages\PySide6</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 46px;"></div><div class="CodeMirror-gutters" style="display: none; height: 46px;"></div></div></div></pre></li><li><p><span>Тут же создайте папку </span><code>bin</code><span> и перенесите туда файл </span><em><span>uic.exe</span></em><span>. Если это не сделать, то функция преобразования UI в код будет не доступна из окна приложения Qt Designer, только из командной строки. Видимо это какой-то баг.</span></p></li></ul></li></ul></li><li><p><span>Как только Qt Designer запуститься, вы увидите диалоговое окно &quot;Новая форма&quot;. Выберите &quot;Main Window&quot; и нажмите &quot;Создать&quot;;</span></p></li><li><p><span>На панели виджетов найдите </span><code>Push Button</code><span> (для быстрого поиска вверху панели виджетов есть фильтр) и перетащите его на форму. Это обычная кнопка. Принцип работы: нажал </span><strong><span>→</span></strong><span> выполнилось какое-то действие. Всего создайте 4 кнопки;</span></p></li><li><p><span>Выберите первую кнопку и в окне &quot;Редактор свойств&quot; (по умолчанию находится с правой стороны) найдите свойство </span><code>text</code><span> (у этого окна тоже есть фильтр). Поменяйте текст на следующий: &quot;Загрузить картинку&quot;;</span></p></li><li><p><span>У остальных кнопок поменяйте свойство </span><code>text</code><span> на: &quot;Сохранить картинку&quot;, &quot;Закодировать текст&quot;, &quot;Декодировать текст&quot;;</span></p></li><li><p><span>Добавьте на форму виджет </span><code>Plain Text Edit</code><span>. Этот виджет - поле ввода простого многострочного текста. Есть поддержка Юникода, но не позволяет выводить форматированный текст (жирный, курсивный, цветной и т.д.). В лабораторной работе используется для ввода текста который нужно закодировать и для вывода декодированного текста.</span></p></li><li><p><span>В редакторе свойств этого виджета найдите свойство </span><code>placeholderText</code><span> и установите ему значение: &quot;Введите текст&quot;.</span></p></li><li><p><span>Добавьте на форму виджет </span><code>Label</code><span>. Этот виджет позволяет выводить текст, который пользователь не может редактировать. В основном используется для подписи полей ввода или отображения вспомогательной информации. Есть поддержка Юникода, а также позволяет форматировать текст при помощи html css разметки. Например так (жирный красный Привет размером 10 пунктов):</span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="html"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="html"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">span</span> <span class="cm-attribute">style</span>=<span class="cm-string">"font-size:10pt; color:#ff0000;"</span><span class="cm-tag cm-bracket">&gt;&lt;</span><span class="cm-tag">b</span><span class="cm-tag cm-bracket">&gt;</span>Привет:<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">b</span><span class="cm-tag cm-bracket">&gt;&lt;/</span><span class="cm-tag">span</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="display: none; height: 23px;"></div></div></div></pre></li><li><p><span>Расположение виджетов выполните на своё усмотрение. Как вариант можно воспользоваться одним из встроенных компоновщиков. Для этого в окне &quot;Инспектор объектов&quot; выберите </span><code>centralwidget</code><span> и на панели инструментов (иконочки вверху окна) выберите &quot;Скомпоновать по вертикали&quot; или что-нибудь другое.</span></p><center><img src="./lab5_files/img/layout_panel.png"><br><i>Рис. 4. Варианты компоновки</i></center></li><li><p><span>Стилистическое оформление виджетов выполните на своё усмотрение. Кроме изменения свойств можно воспользоваться базовым CSS (свойство </span><a href='https://doc.qt.io/qt-6/stylesheet-examples.html'><em><span>styleSheet</span></em></a><span>). Например, если задать </span><em><span>styleSheet</span></em><span> элемента </span><em><span>MainWindow</span></em><span> таким образом:</span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="css"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="css"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tag">QPushButton</span>:<span class="cm-variable-3">hover</span>{<span class="cm-property">color</span>: <span class="cm-keyword">blue</span>; <span class="cm-property">font</span>: <span class="cm-atom">bold</span> <span class="cm-number">10pt</span>;}</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="display: none; height: 23px;"></div></div></div></pre><p><span>То, при наведении мышки на любую из кнопок, текст на ней станет синим, жирным и размером 10 пунктов.</span></p></li><li><p><span>В окне &quot;Инспектор объектов&quot; найдите и удалите элементы </span><code>menubar</code><span> и </span><code>statusbar</code><span>.</span></p></li><li><p><span>В окне &quot;Инспектор объектов&quot; у вас должен быть корневой класса </span><code>QMainWindow</code><span>. Обрате внимание на имя этого элемента (по умолчанию </span><code>MainWindow</code><span>) в дальнейшем оно нам понадобится.</span></p></li><li><p><span>Итоговый интерфейс сохраните в файл.</span></p></li></ol><h4><a name="2-программа-на-с" class="md-header-anchor"></a><span>2. Программа на С++</span></h4><p><span>Работать с полученным в предыдущем пункте файлом можно двумя способами:</span></p><ul><li><span>Экспортировать в код, затем полученный класс добавить руками в свой проект. Этот способ можно выбрать, если вы уже окончательно определились с дизайном интерфейса и хотите получить более оптимальный код графического интерфейса путём его собственноручного &quot;допиливания&quot;;</span></li><li><span>Подключить файл с интерфейсом к проекту и поручить среде Qt Creator автоматически генерировать и подключать необходимый код к проекту. При редактировании файла с интерфейсом среда будет сама экспортировать его в код, поэтому данный вариант подходит, если вы на стадии разработки интерфейса или в случае простого интерфейса.</span></li></ul><p><span>Воспользуемся вторым способом. Для этого:</span></p><ol start='' ><li><p><span>Откройте Qt Creator и создайте новый проект. Из списка шаблонов выберите &quot;Приложение (Qt)&quot; </span><strong><span>→</span></strong><span> &quot;Приложение Qt Widgets&quot;.</span></p></li><li><p><span>Название проекта и систему сборки выберите на своё усмотрение. Можно оставить значения по умолчанию.</span></p></li><li><p><span>На странице &quot;Информация о классе&quot; Имя класса и Базовый класс должны в точности совпадать с именем и классом корневого объекта графического интерфейса (пункт 1.12). По умолчанию это </span><code>MainWindow</code><span> и </span><code>QMainWindow</code><span> соответственно. Имена файлов можно менять по своему усмотрению.</span></p><center><img src="./lab5_files/img/class_info.png"><br><i>Рис. 5. Информация о классе</i></center></li><li><p><span>На остальных страницах мастера создания проекта можно ничего не менять.</span></p></li></ol><p><span>В созданном проекте уже будет файл графического интерфейса. Заменим его на свой:</span></p><ol start='' ><li><span>Откройте папку с проектом. Например: в среде выберите любой файл и щёлкните по нему правой кнопкой мыши </span><strong><span>→</span></strong><span> выберите пункт &quot;Показать в проводнике&quot;;</span></li><li><span>Переименуйте файл со своим графическим интерфейсом. В моём случае файл должен называться: </span><em><span>mainwindow.ui</span></em><span>;</span></li><li><span>Замените файл проекта на свой. При необходимости его можно будет изменять во встроенном в Qt Creator редакторе.</span></li></ol><p><span>Если теперь запустить проект, то в результате откроется окно разработанное в Qt Designer, но пока что нажатие на кнопки ни к чему не приведёт. Перейдём к добавлению функционала. </span></p><h5><a name="загрузка-изображения" class="md-header-anchor"></a><span>Загрузка изображения</span></h5><p><span>Функционал загрузки изображения будем добавлять в 3 шага:</span></p><ul><li><span>Создадим слот, который выполнится при получении сигнала от кнопки;</span></li><li><span>Добавим возможность указывать путь к изображению которое нужно загрузить;</span></li><li><span>Добавим возможность загружать изображение в специальный объект-контейнер.</span></li></ul><p><span>С точки зрения кода слот - это обычный метод класса, кроме того, что модификаторы доступа слотов, обычно содержат дополнительное слово </span><code>slots</code><span>, например: </span><code>public slots:</code><span>, </span><code>private slots:</code><span>. В качестве слота также можно использовать обычную или лямбда функцию. И наоборот, слот можно использовать как обычный метод класса.</span></p><p><span>Создадим слот который загрузит картинку при получении сигнала от кнопки. Для этого:</span></p><ol start='' ><li><span>Перейдите в файл </span><code>mainwindow.h</code><span> и в классе </span><code>MainWindow</code><span> добавьте секцию </span><code>public slots:</code><span> в которой объявите слот: </span><code>void loadImage();</code></li><li><span>Щёлкните правой кнопкой мыши по имени слота и выберите: Рефакторинг </span><strong><span>→</span></strong><span> Добавить реализацию в mainwindow.cpp</span></li><li><span>После чего будет автоматически создано пустое тело слота и вас перекинет в </span><em><span>mainwindow.cpp</span></em><span>.</span></li></ol><p><span>Слот создан, но пока-что он не реагирует ни на какие сигналы. Для того, чтобы он начал это делать нужно присоединить его к сигналу. Для этого:</span></p><ol start='' ><li><p><span>Перейдите в конструктор класса </span><code>MainWindow</code><span> (он в </span><code>mainwindow.сpp</code><span>). Соединить сигнал со слотом достаточно один раз, поэтому мы делаем это в конструкторе.</span></p></li><li><p><span>Напишите код:</span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="c++"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="c++"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">connect</span>(<span class="cm-variable">ui</span><span class="cm-operator">-&gt;</span><span class="cm-variable">pushButton</span>, <span class="cm-operator">&amp;</span><span class="cm-variable">QPushButton::clicked</span>, <span class="cm-keyword">this</span>, <span class="cm-operator">&amp;</span><span class="cm-variable">MainWindow::loadImage</span>);</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="display: none; height: 23px;"></div></div></div></pre><p><code>ui-&gt;pushButton</code><span> - это имя кнопки, сигналы от которой мы хотим слушать (источник сигнала). Данное имя определяется свойством </span><code>objectNаme</code><span> в окне редактора интерфейса;</span></p><p><code>QPushButton::clicked</code><span> - тип сигнала который слушаем. Амперсант указать обязательно.</span></p><p><code>this</code><span> - объект приёмник сигнала.</span></p><p><code>MainWindow::loadImage</code><span> - слот который выполнится при поступлении сигнала. Амперсант указать обязательно;</span></p></li><li><p><span>К одному сигналу можно подключить любое количество слотов и на оборот, но для этого придётся выполнить отдельный вызов </span><code>connect</code><span>. Один и тот же слот можно подключить к сигналу несколько раз, в этом случае он будет выполняться столько раз сколько был подключён. Отключить сигнал от слота можно при помощи </span><code>disconnect</code><span> с теми же параметрами.</span></p></li></ol><p><span>Теперь при щелчке по кнопке с именем </span><code>pushButton</code><span> будет выполнятся код написанный в слоте </span><code>loadImage</code><span>. Сейчас тело слота пустое и нужно написать в нём код. Перейдите в тело слота </span><code>loadImage</code><span>.</span></p><p><span>Для выбора пути и имени картинки воспользуйтесь классом </span><code>QFileDialog</code><span>. Данный класс позволяет указать путь к файлу при помощи стандартного диалогового окна выбора файла. Изучите </span><a href='https://doc.qt.io/qt-6/qfiledialog.html'><span>документацию</span></a><span> и примеры и настройте диалоговое окно таким образом, чтобы оно позволяло выбирать только файлы с расширением </span><code>.png</code><span>. Один из вариантов:</span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="c++"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="c++"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">QString</span> <span class="cm-variable">fileName</span> <span class="cm-operator">=</span> <span class="cm-variable">QFileDialog::getOpenFileName</span>(<span class="cm-keyword">this</span>, <span class="cm-variable">tr</span>(<span class="cm-string">"Open Image"</span>), <span class="cm-string">""</span>, <span class="cm-variable">tr</span>(<span class="cm-string">"Допустимые форматы (*.png)"</span>));</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 46px;"></div><div class="CodeMirror-gutters" style="display: none; height: 46px;"></div></div></div></pre><p><code>tr()</code><span>  - принимает в качестве аргумента строку и заменяет её на другую строку. Эта штука нужна в том случае если вы пишите приложение с поддержкой нескольких языков и хотите дать пользователю возможность выбрать предпочитаемый язык интерфейса. Перевод на другие языки нужно писать самому. В нашем случае </span><code>tr</code><span> можно убрать и оставить просто строку.</span></p><p><span>Для загрузки изображения воспользуйтесь классом </span><a href='https://doc.qt.io/qt-5/qimage.html'><code>QImage</code></a><span>. Для того, чтобы изображение было доступно и после выхода из слота перейдите в </span><code>mainwindow.h</code><span> и в классе </span><code>MainWindow</code><span> объявите поле </span><code>image</code><span> типа </span><code>QImage</code><span>. Вернитесь обратно в слот и загрузите картинку при помощи метода </span><code>load</code><span> которому нужно передать имя файла. В нашем случае имя файла вернётся ка результат работы </span><code>QFileDialog</code><span>. Если пользователь закроет диалог не выбрав файл, то </span><code>QFileDialog</code><span> вернёт пустую строку.</span></p><p><span>Как упоминалось ранее, формат данных о цвете может хранится в картинке по разному, поэтому преобразуем его к требуемому. Для этого выполните команду: </span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="c++"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="c++"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">image</span>.<span class="cm-variable">convertTo</span>(<span class="cm-variable">QImage::Format_ARGB32</span>);</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="display: none; height: 23px;"></div></div></div></pre><p><span>Если процедура загрузки картинки прошла успешно, поменяйте текст на элементе </span><code>label</code><span> на: &quot;Изображение успешно загружено&quot; иначе на: &quot;Изображение не загружено&quot;. Для этого напишите в теле слота: </span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="c++"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="c++"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">ui</span><span class="cm-operator">-&gt;</span><span class="cm-variable">label</span><span class="cm-operator">-&gt;</span><span class="cm-variable">setText</span>(); <span class="cm-comment">// В курглых скобочках нужно указать требуемы текст</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="display: none; height: 23px;"></div></div></div></pre><h5><a name="сохранение-изображения" class="md-header-anchor"></a><span>Сохранение изображения</span></h5><p><span>Прежде чем перейти непосредственно к кодированию текста научимся сохранять картинку в файл. Для этого:</span></p><ol start='' ><li><span>Добавьте слот </span><code>void saveImage();</code><span>. Действуйте так же как и при добавлении слота </span><code>loadImage</code><span>;</span></li><li><span>Соедините слот </span><code>saveImage</code><span> с сигналом от кнопки. Действуйте так же как и при соединении слота </span><code>loadImage</code><span>, но в качестве источника сигнала выберите кнопку на которой написано: &quot;Сохранить картинку&quot;;</span></li><li><span>Перейдите в тело слота.</span></li></ol><p><span>Для выбора пути и имени под которым будет сохранена картинка воспользуйтесь классом </span><code>QFileDialog</code><span>. В  </span><a href='https://doc.qt.io/qt-6/qfiledialog.html'><span>документации</span></a><span> можно найти примеры демонстрирующие вызов диалогового окна сохранения. Настройте фильтр расширений на работу только с </span><code>.png</code><span> файлами.</span></p><p><span>Сохранить изображение можно при помощи метода </span><code>save</code><span> поля </span><code>image</code><span>.  В качестве параметра метод принимает строку указывающую куда сохранять изображение.</span></p><p><span>Если процедура сохранения картинки прошла успешно, поменяйте текст на элементе </span><code>label</code><span> на: &quot;Изображение успешно сохранено&quot; иначе на: &quot;Изображение не сохранено&quot;.</span></p><h5><a name="кодирование-сообщения" class="md-header-anchor"></a><span>Кодирование сообщения</span></h5><p><span>Текст набранный пользователем в </span><code>plainTextEdit</code><span> должен быть сохранён в изображение формата </span><em><span>png</span></em><span>, при этом часть информации используемой для кодирования цвета пикселей будет использована для сохранения сообщения. Для начала рассмотрим алгоритм который требуется реализовать. </span></p><p><span>Любой текст - это последовательность символов, и каждому символу соответствует целочисленный код в выбранной кодировке. Для сохранения текста будем использовать кодировку </span><em><span>UTF-8</span></em><span>. Этот целочисленный код можно перевести в последовательность байт, а затем и бит. Следовательно и весь текст можно представить как одну длинную последовательность бит:</span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang=""><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">Привет, Мир!</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">110100001001111111010001100000001101000010111000110100001011001011010000101101011...</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 46px;"></div><div class="CodeMirror-gutters" style="display: none; height: 46px;"></div></div></div></pre><p><span>В свою очередь картинка - это последовательность пикселов. Будем брать их по рядам, то есть в порядке слева направо, сверху вниз. </span><strong><span>Используйте именно такой порядок</span></strong><span>. Пиксель - это последовательность трёх каналов RGB, где каждый канал представляется в виде 8 бит или числом в диапазоне [0 ... 255].</span></p><p><span>Чтобы изменения в картинке были не сильно заметны, для сохранения текста, будем использовать только младший бит каждого канала, то есть последовательно слева направо будем брать бит из текста и заменять им младший бит одного из каналов изображения.</span></p><p><img src="./lab5_files/img/coding.png" referrerpolicy="no-referrer"></p><center><i>Рис. 6. Кодирование текста в картинку</i></center><p><span>Заменить младший бит некоторого целого числа на другой можно несколькими способами. Вот некоторые из них:</span></p><p><span>Способ первый:</span></p><ul><li><span>Занульем последний бит при помощи побитовых сдвигов.</span>
+<span>Например: цвет канала 153. В бинарной форме 153 - это </span><code>1001 1001</code><span>. Выполняем сдвиг вправо и затем влево на 1 бит: </span><code>(153 &gt;&gt; 1) &lt;&lt; 1</code><span> в итоге получаем </span><code>1001 1000</code><span> (в десятичном виде: 152).</span></li><li><span>Прибавляем к получившемуся числу 1, если нужный бит 1, если 0, то ничего не делаем.</span></li><li><span>Заменяем цвет канала на получившуюся сумму.</span></li></ul><p><span>Способ второй:</span></p><ul><li><span>Берём ближайшее меньшее чётное, то есть если цвет канала - чётное число, ничего не меняем, если не чётное, отнимаем единицу.</span>
+<span>Например: цвет канала исходного изображения 131, значит отнимаем 1. Если 170, так и оставляем.</span></li><li><span>Прибавляем к получившемуся числу 1, если нужный бит 1, если 0, то ничего не делаем.</span></li><li><span>Заменяем цвет канала на получившуюся сумму.</span></li></ul><p><span>Это почти всё, что нужно, чтобы сохранить текст в картинку. Но рано или поздно текст придётся из картинки извлечь, и тут возникает несколько вопросов:</span></p><ul><li><span>Есть ли в этой картинке закодированное сообщение?</span></li><li><span>Какая длина сообщения или где оно заканчивается?</span></li></ul><p><span>Для того, чтобы иметь возможность отличать картинки содержащие закодированное сообщение от остальных добавим в начало сообщения специальную метку. Чем больше длина метки, тем меньше вероятность ложной идентификации картинки как содержащей сообщение, но для лабораторной работы хватит и 24 бит. Пусть в качестве метки будет побитовое </span><em><span>UTF-8</span></em><span> представление символа </span><code>❤</code><span>:</span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang=""><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">11100010 10011101 10100100</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="display: none; height: 23px;"></div></div></div></pre><p><span>Следом за меткой добавим информацию о размере сообщения, то есть сколько в нём байт. Для этой цели вполне достаточно 32 бита, которые позволят сохранять сообщения длиной от </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.161ex" height="1.994ex" viewBox="0 -755.9 500 858.4" role="img" focusable="false" style="vertical-align: -0.238ex;"><defs><path stroke-width="0" id="E1-MJMAIN-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E1-MJMAIN-30" x="0" y="0"></use></g></svg></span><script type="math/tex">0</script><span> до </span><span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="13.161ex" height="1.994ex" viewBox="0 -755.9 5666.7 858.4" role="img" focusable="false" style="vertical-align: -0.238ex;"><defs><path stroke-width="0" id="E2-MJMAIN-34" d="M462 0Q444 3 333 3Q217 3 199 0H190V46H221Q241 46 248 46T265 48T279 53T286 61Q287 63 287 115V165H28V211L179 442Q332 674 334 675Q336 677 355 677H373L379 671V211H471V165H379V114Q379 73 379 66T385 54Q393 47 442 46H471V0H462ZM293 211V545L74 212L183 211H293Z"></path><path stroke-width="0" id="E2-MJMAIN-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path stroke-width="0" id="E2-MJMAIN-39" d="M352 287Q304 211 232 211Q154 211 104 270T44 396Q42 412 42 436V444Q42 537 111 606Q171 666 243 666Q245 666 249 666T257 665H261Q273 665 286 663T323 651T370 619T413 560Q456 472 456 334Q456 194 396 97Q361 41 312 10T208 -22Q147 -22 108 7T68 93T121 149Q143 149 158 135T173 96Q173 78 164 65T148 49T135 44L131 43Q131 41 138 37T164 27T206 22H212Q272 22 313 86Q352 142 352 280V287ZM244 248Q292 248 321 297T351 430Q351 508 343 542Q341 552 337 562T323 588T293 615T246 625Q208 625 181 598Q160 576 154 546T147 441Q147 358 152 329T172 282Q197 248 244 248Z"></path><path stroke-width="0" id="E2-MJMAIN-36" d="M42 313Q42 476 123 571T303 666Q372 666 402 630T432 550Q432 525 418 510T379 495Q356 495 341 509T326 548Q326 592 373 601Q351 623 311 626Q240 626 194 566Q147 500 147 364L148 360Q153 366 156 373Q197 433 263 433H267Q313 433 348 414Q372 400 396 374T435 317Q456 268 456 210V192Q456 169 451 149Q440 90 387 34T253 -22Q225 -22 199 -14T143 16T92 75T56 172T42 313ZM257 397Q227 397 205 380T171 335T154 278T148 216Q148 133 160 97T198 39Q222 21 251 21Q302 21 329 59Q342 77 347 104T352 209Q352 289 347 316T329 361Q302 397 257 397Z"></path><path stroke-width="0" id="E2-MJMAIN-37" d="M55 458Q56 460 72 567L88 674Q88 676 108 676H128V672Q128 662 143 655T195 646T364 644H485V605L417 512Q408 500 387 472T360 435T339 403T319 367T305 330T292 284T284 230T278 162T275 80Q275 66 275 52T274 28V19Q270 2 255 -10T221 -22Q210 -22 200 -19T179 0T168 40Q168 198 265 368Q285 400 349 489L395 552H302Q128 552 119 546Q113 543 108 522T98 479L95 458V455H55V458Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><use xlink:href="#E2-MJMAIN-34" x="0" y="0"></use><g transform="translate(722,0)"><use xlink:href="#E2-MJMAIN-32"></use><use xlink:href="#E2-MJMAIN-39" x="500" y="0"></use><use xlink:href="#E2-MJMAIN-34" x="1000" y="0"></use></g><g transform="translate(2444,0)"><use xlink:href="#E2-MJMAIN-39"></use><use xlink:href="#E2-MJMAIN-36" x="500" y="0"></use><use xlink:href="#E2-MJMAIN-37" x="1000" y="0"></use></g><g transform="translate(4166,0)"><use xlink:href="#E2-MJMAIN-32"></use><use xlink:href="#E2-MJMAIN-39" x="500" y="0"></use><use xlink:href="#E2-MJMAIN-36" x="1000" y="0"></use></g></g></svg></span><script type="math/tex">4\:294\:967\:296</script><span> байт. Эти 32 бита можно представить как побитовое представление беззнакового целого числа (младший разряд справа), то есть:</span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang=""><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">1 &nbsp; &nbsp; → 00000000 00000000 00000000 00000001</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">5 &nbsp; &nbsp; → 00000000 00000000 00000000 00000101</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">10084 → 00000000 00000000 00100111 01100100</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 69px;"></div><div class="CodeMirror-gutters" style="display: none; height: 69px;"></div></div></div></pre><p><span>Следом за размером (</span><code>size</code><span>) располагаются </span><code>size</code><span> байт информации, которые являются закодированным сообщением. Всё, что после этих </span><code>size</code><span> байт может быть чем угодно.</span></p><p><span>Таким образом сообщение </span><code>Ёж</code><span> должно быть представлено следующей последовательностью бит:</span></p><p><img src="./lab5_files/img/yj.png" referrerpolicy="no-referrer"></p><center><i>Рис. 7. Битовое представление закодированного сообщения</i></center><p><span>Во всех примерах пробелы между байтами используются только для визуального удобства восприятия информации, на самом деле никаких пробелов добавлять НЕ нужно!</span></p><p><span>Перейдём непосредственно к реализации алгоритма кодирования. Для этого:</span></p><ol start='' ><li><span>Добавьте слот </span><code>void encodeMsg();</code><span>;</span></li><li><span>Соедините слот </span><code>encodeMsg</code><span> с сигналом от кнопки &quot;Закодировать текст&quot;;</span></li><li><span>Перейдите в тело слота.</span></li></ol><p><span>В теле слота реализуйте следующую последовательность действий:</span></p><ol start='' ><li><p><span>Получите текст введённый пользователем в виджет </span><code>plainTextEdit</code><span> при помощи его метода </span><code>toPlainText()</code><span>. В результате вы получите </span><code>QString</code><span>.</span></p></li><li><p><span>Преобразуйте полученную строку в кодировку </span><em><span>UTF-8</span></em><span> при помощи метода </span><code>QString</code><span> - </span><code>toUtf8()</code><span>. В результате вы получите </span><code>QByteArray</code><span>;</span></p></li><li><p><span>Определите, сколько информации можно поместить в картинку из расчёта, что в каждый пиксель изображения можно записать 3 бита.</span></p></li><li><p><span>Если размер </span><code>QByteArray</code><span> плюс ключ, плюс информация о размере НЕ помещаются в изображение, то поменяйте текст на элементе </span><code>label</code><span> на: &quot;Ошибка. Не достаточно места!&quot;. И выйдите из слота.</span></p></li><li><p><span>Поместите текст в картинку согласно алгоритму описанному выше. Вам могут понадобиться:</span></p><ul><li><code>pixelColor(int x, int y)</code><span> - метод класса </span><a href='https://doc.qt.io/qt-6/qimage.html'><code>QImage</code></a><span>; Возвращает цвет пикселя с координатами (</span><em><span>x</span></em><span>, </span><em><span>y</span></em><span>) как объект класса </span><a href='https://doc.qt.io/qt-6/qcolor.html'><code>QColor</code></a><span>;</span></li><li><code>setPixelColor(int x, int y, const QColor &amp;color)</code><span> - метод класса </span><a href='https://doc.qt.io/qt-6/qimage.html'><code>QImage</code></a><span>; Устанавливает цвет пикселя с координатами (</span><em><span>x</span></em><span>, </span><em><span>y</span></em><span>) в значение </span><em><span>color</span></em><span>;</span></li><li><code>red()</code><span>, </span><code>green()</code><span>, </span><code>blue()</code><span> - методы класса </span><a href='https://doc.qt.io/qt-6/qcolor.html'><code>QColor</code></a><span>; Возвращают целое число соответствующее одноимённой компоненте цвета;</span></li><li><code>setRed(int red)</code><span>, </span><code>setGreen(int green)</code><span>, </span><code>setBlue(int blue)</code><span> - методы класса </span><a href='https://doc.qt.io/qt-6/qcolor.html'><code>QColor</code></a><span>; Устанавливают значение одноимённой компоненты цвета.</span></li></ul></li><li><p><span>Поменяйте текст на элементе </span><code>label</code><span> на: &quot;Сообщение добавлено в картинку!&quot;</span></p></li></ol><h5><a name="декодирование-сообщения" class="md-header-anchor"></a><span>Декодирование сообщения</span></h5><p><span>Подробно останавливаться на алгоритме декодирования не будем, зная алгоритм кодирования довольно легко понять как декодировать сообщение. Перейдём сразу к реализации:</span></p><ol start='' ><li><span>Добавьте слот </span><code>void decodeMsg();</code><span>;</span></li><li><span>Соедините слот </span><code>decodeMsg</code><span> с сигналом от кнопки &quot;Декодировать текст&quot;;</span></li><li><span>Перейдите в тело слота.</span></li></ol><p><span>В теле слота реализуйте следующую последовательность действий:</span></p><ol start='' ><li><p><span>Проверьте наличие метки в изображении. Если метки нет, то поменяйте текст на элементе </span><code>label</code><span> на: &quot;Сообщение не обнаружено&quot;. И выйдите из слота;</span></p></li><li><p><span>Если метка есть, то определите размер сообщения и поменяйте текст на элементе </span><code>label</code><span> на: &quot;Присутствует сообщение длиной </span><em><span>{длина}</span></em><span> байт&quot;, например так:</span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="c++"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="c++"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">ui</span><span class="cm-operator">-&gt;</span><span class="cm-variable">label</span><span class="cm-operator">-&gt;</span><span class="cm-variable">setText</span>(<span class="cm-variable">QString</span>(<span class="cm-string">"Присутствует сообщение длиной %1 байт"</span>).<span class="cm-variable">arg</span>(<span class="cm-variable">size</span>));</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="display: none; height: 23px;"></div></div></div></pre><p><span>где </span><code>size</code><span> - переменная или выражение.</span></p></li><li><p><span>Восстановите сообщение из картинки. Вам могут понадобиться:</span></p><ul><li><code>QString::fromUtf8(const QByteArray&amp; str)</code><span> - принимает массив байт и возвращает </span><code>QString</code><span>, если эти байты можно преобразовать в </span><em><span>UTF-8</span></em><span>;</span></li></ul></li><li><p><span>Выведите текст в виджет </span><code>plainTextEdit</code><span> при помощи его метода </span><code>setPlainText</code><span>.</span></p></li></ol><h5><a name="дополнительный-плюшки" class="md-header-anchor"></a><span>Дополнительный плюшки</span></h5><p><span>Чтобы пользователь понимал сколько ещё информации поместится в изображение реализуйте следующее:</span></p><ol start='' ><li><span>Добавьте слот </span><code>void msgChanged();</code><span>;</span></li><li><span>Соедините этот слот с сигналом </span><code>QPlainTextEdit::textChanged</code><span> от виджета </span><code>plainTextEdit</code><span>;</span></li><li><span>Перейдите в тело слота.</span></li></ol><p><span>Как только пользователь будет изменять текст в </span><code>plainTextEdit</code><span> будет вызываться </span><code>msgChanged</code><span>.  В теле слота напишите:</span></p><ol start='' ><li><span>Определите полное количество байт которые можно поместить в изображение;</span></li><li><span>Преобразуйте текст в </span><code>plainTextEdit</code><span> в </span><code>utf-8</code><span> и определите его размер в байтах;</span></li><li><span>Определите количество байт которое ещё можно ввести. При расчёте учитывайте место занимаемое меткой и размером;</span></li><li><span>Поменяйте текст на элементе </span><code>label</code><span> на: &quot;Ещё можно ввести: </span><em><span>{количество}</span></em><span> байт&quot;.</span></li></ol><h5><a name="проверка-работоспособности-программы" class="md-header-anchor"></a><span>Проверка работоспособности программы</span></h5><p><span>Проверьте правильность реализации программы на </span><a href='./lab5_files/img/saitama.png'><span>изображении</span></a><span> [13.1 МБ].</span></p><h4><a name="3-программа-на-python" class="md-header-anchor"></a><span>3. Программа на Python</span></h4><p><span>Используя интерфейс реализованный в разделе первом и классы Qt напишите программу аналогичную по функционалу программе на С++ из раздела 2. </span></p><p><span>Если у вас не установлен PySide6, то установите при помощи команды:</span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang=""><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">pip install pyside6</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="display: none; height: 23px;"></div></div></div></pre><p><span>Вместо 6й можно использовать другую версию, вместо PySide можно использовать PyQt.</span></p><p><span>Так же как и в случае С++ работать с полученным в разделе первом файлом интерфейса можно несколькими </span><a href='https://doc.qt.io/qtforpython/tutorials/basictutorial/uifiles.html'><span>способами</span></a><span>:</span></p><ul><li><span>Экспортировать в код, затем полученный класс добавить руками в свой проект;</span></li><li><span>Загрузить .ui - файл во время выполнения скрипта без предварительного преобразования в класс;</span></li><li><span>Подключить файл с интерфейсом к проекту созданному в среде Qt Creator. Шаблон: Приложение (Qt for Python) </span><strong><span>→</span></strong><span> Qt для Python - Окно (файл UI). В принципе ничего нового, по сравнению с первыми двумя пунктами, просто редактор встроен в среду разработки.</span><br/><span>В стандартных шаблоны Qt Creator кривой код загрузки интерфейса, а для </span><code>QMainWindow</code><span> он вообще из коробки не работает.</span></li></ul><p><span>Для определённости все указания будут даваться для случая экспорта Ui в класс, но разрешается писать любой код на своё усмотрение, главное получить правильный результат.</span></p><h5><a name="экспорт-ui-в-класс" class="md-header-anchor"></a><span>Экспорт UI в класс</span></h5><ol start='' ><li><p><span>Откройте Qt Designer;</span></p></li><li><p><span>В пункте главного меню Форма выберите Показать код Python. В результате будет сгенерирован класс </span><code>Ui_MainWindow</code><span>. Всё, что после </span><code>Ui_</code><span> определяется свойством </span><code>objectName</code><span> корневого элемента. Если у вас в проекте несколько форм, это свойство придётся менять, чтобы в коде не было конфликта имён.</span></p></li><li><p><span>Скопируйте созданный код в файл скрипта. Этот класс занимается тем, что создаёт виджеты и размещает их на форме, при этом саму форму класс не создаёт, а работает с той, что передали методу </span><code>setupUi</code><span>;</span></p></li><li><p><span>После Ui класса вставьте этот фрагмент:</span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="python" style="break-inside: unset;"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">class</span> <span class="cm-def">MainWindow</span>(<span class="cm-variable">QMainWindow</span>):</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">def</span> <span class="cm-def">__init__</span>(<span class="cm-variable-2">self</span>):</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-builtin">super</span>(<span class="cm-variable">MainWindow</span>, <span class="cm-variable-2">self</span>).<span class="cm-property">__init__</span>()</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable-2">self</span>.<span class="cm-property">ui</span> = <span class="cm-variable">Ui_MainWindow</span>()</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable-2">self</span>.<span class="cm-property">ui</span>.<span class="cm-property">setupUi</span>(<span class="cm-variable-2">self</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword cm-error">if</span> <span class="cm-variable">__name__</span> == <span class="cm-string">"__main__"</span>:</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">import</span> <span class="cm-variable">sys</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">app</span> = <span class="cm-variable">QApplication</span>(<span class="cm-variable">sys</span>.<span class="cm-property">argv</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-null cm-error"> &nbsp; &nbsp;</span><span class="cm-variable">window</span> = <span class="cm-variable">MainWindow</span>()</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">window</span>.<span class="cm-property">show</span>()</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-null cm-error"> &nbsp; &nbsp;</span><span class="cm-variable">sys</span>.<span class="cm-property">exit</span>(<span class="cm-variable">app</span>.<span class="cm-property">exec_</span>())</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 322px;"></div><div class="CodeMirror-gutters" style="display: none; height: 322px;"></div></div></div></pre></li><li><p><span>Можно запускать.</span></p></li></ol><h5><a name="загрузка-ui-без-преобразования-в-класс" class="md-header-anchor"></a><span>Загрузка UI без преобразования в класс</span></h5><ol start='' ><li><p><span>Создайте скрипт и скопируйте туда код представленный ниже:</span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="python" style="break-inside: unset;"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># -*- coding: utf-8 -*-</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">import</span> <span class="cm-variable">sys</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">import</span> <span class="cm-variable">os</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">from</span> <span class="cm-variable">PySide6</span>.<span class="cm-property">QtWidgets</span> <span class="cm-keyword">import</span> <span class="cm-variable">QApplication</span>, <span class="cm-variable">QMainWindow</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">from</span> <span class="cm-variable">PySide6</span>.<span class="cm-property">QtCore</span> <span class="cm-keyword">import</span> <span class="cm-variable">QFile</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">from</span> <span class="cm-variable">PySide6</span>.<span class="cm-property">QtUiTools</span> <span class="cm-keyword">import</span> <span class="cm-variable">QUiLoader</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword cm-error">if</span> <span class="cm-variable">__name__</span> == <span class="cm-string">"__main__"</span>:</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">app</span> = <span class="cm-variable">QApplication</span>(<span class="cm-variable">sys</span>.<span class="cm-property">argv</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">path</span> = <span class="cm-variable">os</span>.<span class="cm-property">path</span>.<span class="cm-property">join</span>(<span class="cm-variable">os</span>.<span class="cm-property">path</span>.<span class="cm-property">dirname</span>(<span class="cm-variable">__file__</span>), <span class="cm-string">"form.ui"</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">ui_file</span> = <span class="cm-variable">QFile</span>(<span class="cm-variable">path</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">ui_file</span>.<span class="cm-property">open</span>(<span class="cm-variable">QFile</span>.<span class="cm-property">ReadOnly</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">loader</span> = <span class="cm-variable">QUiLoader</span>()</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">window</span> = <span class="cm-variable">loader</span>.<span class="cm-property">load</span>(<span class="cm-variable">ui_file</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">ui_file</span>.<span class="cm-property">close</span>()</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">window</span>.<span class="cm-property">show</span>()</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">sys</span>.<span class="cm-property">exit</span>(<span class="cm-variable">app</span>.<span class="cm-property">exec_</span>())</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 506px;"></div><div class="CodeMirror-gutters" style="display: none; height: 506px;"></div></div></div></pre></li><li><p><span>Для данного примера файл с интерфейсом должен лежать в той же папке и называться </span><em><span>form.ui</span></em></p></li><li><p><span>Можно запускать.</span></p></li></ol><h5><a name="загрузка-изображения-n312" class="md-header-anchor"></a><span>Загрузка изображения</span></h5><p><span>Большая часть кода этого и следующих разделов будет идентична коду на С++, с точностью до синтаксиса языка, но в некоторых случая встречаются нюансы. Например: везде, где в С++ коде были </span><code>QString</code><span> теперь будут обычные python строки; любые массивы, будут python-списками.</span></p><p><span>Функционал загрузки изображения будем добавлять в 3 шага:</span></p><ul><li><span>Создадим слот, который выполнится при получении сигнала от кнопки;</span></li><li><span>Добавим возможность указывать путь к изображению которое нужно загрузить;</span></li><li><span>Добавим возможность загружать изображение в специальный объект-контейнер.</span></li></ul><p><span>С точки зрения кода слотом может быть метод любого класса обычная или даже лямбда функция, но для корректной работы рекомендуется создавать слоты как методы класса унаследованного от </span><code>QObject</code><span> (любой класс Qt наследуется от </span><code>QObject</code><span>) и добавлять им декоратор </span><code>@Slot()</code><span>. Этот декоратор находятся в модуле </span><code>QtCore</code><span>.</span></p><p><span>Создадим слот который загрузит картинку при получении сигнала от кнопки. Для этого:</span></p><ol start='' ><li><p><span>Перейдите в тело класса </span><code>MainWindow</code><span> и объявите слот:</span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="python"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">@Slot</span>()</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">def</span> <span class="cm-def">loadImage</span>(<span class="cm-variable-2">self</span>):</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">pass</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 69px;"></div><div class="CodeMirror-gutters" style="display: none; height: 69px;"></div></div></div></pre><p><span>Слот создан, но пока-что он не реагирует ни на какие сигналы. Для того, чтобы он начал это делать нужно присоединить его к сигналу. Для этого:</span></p><ol start='' ><li><p><span>Перейдите в метод </span><code>__init__</code><span> класса класса </span><code>MainWindow</code><span> и напишите код:</span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="c++"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="c++"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">self</span>.<span class="cm-variable">ui</span>.<span class="cm-variable">pushButton</span>.<span class="cm-variable">clicked</span>.<span class="cm-variable">connect</span>(<span class="cm-variable">self</span>.<span class="cm-variable">loadImage</span>)</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="display: none; height: 23px;"></div></div></div></pre><p><code>self.ui.pushButton</code><span> - это имя кнопки, к сигналу которой подключаем слот (источник сигнала). Данное имя определяется свойством </span><code>objectNаme</code><span> в окне редактора интерфейса;</span></p><p><code>clicked</code><span> - тип сигнала;</span></p><p><code>self</code><span> - объект приёмник сигнала (в нашем случае он же и хозяин источника);</span></p><p><code>loadImage</code><span> - слот который выполнится при поступлении сигнала.</span></p></li><li><p><span>К одному сигналу можно подключить любое количество слотов и на оборот. Один и тот же слот можно подключить к сигналу несколько раз, в этом случае он будет выполняться столько раз сколько был подключён. Для отключения сигнала от слота нужно использовать ту же команду только вместо </span><code>connect</code><span> написать </span><code>disconnect</code><span>.</span></p></li></ol><p><span>Теперь при щелчке по кнопке с именем </span><code>pushButton</code><span> будет выполнятся код написанный в слоте </span><code>loadImage</code><span>. Сейчас тело слота пустое и нужно написать в нём код. Перейдите в тело слота </span><code>loadImage</code><span>.</span></p><p><span>Для выбора пути и имени картинки воспользуйтесь классом </span><code>QFileDialog</code><span>. Изучите </span><a href='https://doc.qt.io/qtforpython/PySide6/QtWidgets/QFileDialog.html'><span>документацию</span></a><span> и примеры и настройте диалоговое окно таким образом, чтобы оно позволяло выбирать только файлы с расширением </span><code>.png</code><span>. Один из вариантов:</span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="c++"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="c++"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">fileName</span>, <span class="cm-variable">_</span> <span class="cm-operator">=</span> <span class="cm-variable">QFileDialog</span>.<span class="cm-variable">getOpenFileName</span>(<span class="cm-variable">self</span>, <span class="cm-variable">self</span>.<span class="cm-variable">tr</span>(<span class="cm-string">"Open Image"</span>), <span class="cm-string">""</span>, <span class="cm-variable">self</span>.<span class="cm-variable">tr</span>(<span class="cm-string">"Доступные форматы (*.png)"</span>))</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 46px;"></div><div class="CodeMirror-gutters" style="display: none; height: 46px;"></div></div></div></pre><p><span>В данном случае есть отличие от С++ кода. </span><code>getOpenFileName</code><span> возвращает не просто имя файла, а кортеж из имени файла и фильтра форматов, поэтому имя файла принимаем в </span><code>fileName</code><span>, а второй параметр игнорируем.</span></p><p><code>tr()</code><span> тоже можно убрать. Здесь он указан просто как пример использования.</span></p><p><span>Для загрузки изображения воспользуйтесь классом </span><a href='https://doc.qt.io/qtforpython/PySide6/QtGui/QImage.html'><code>QImage</code></a><span>. Для того, чтобы изображение было доступно и после выхода из слота добавим в класс </span><code>MainWindow</code><span> поле </span><code>self.image</code><span> типа </span><code>QImage</code><span> в которое и загрузим картинку при помощи метода </span><code>load</code><span> которому нужно передать имя файла.</span></p><p><span>Как упоминалось ранее, формат данных о цвете может хранится в картинке по разному, поэтому преобразуем его к требуемому. Для этого выполните команду: </span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="c++"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="c++"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">self</span>.<span class="cm-variable">image</span>.<span class="cm-variable">convertTo</span>(<span class="cm-variable">QImage</span>.<span class="cm-variable">Format_ARGB32</span>)</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="display: none; height: 23px;"></div></div></div></pre><p><span>Если процедура загрузки картинки прошла успешно, поменяйте текст на элементе </span><code>label</code><span> на: &quot;Изображение успешно загружено&quot; иначе на: &quot;Изображение не загружено&quot;. Для этого напишите: </span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="c++"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="c++"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">self</span>.<span class="cm-variable">ui</span>.<span class="cm-variable">label</span>.<span class="cm-variable">setText</span>(); <span class="cm-comment">// В курглых скобочках нужно указать требуемы текст</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="display: none; height: 23px;"></div></div></div></pre></li></ol><h5><a name="сохранение-изображения-n350" class="md-header-anchor"></a><span>Сохранение изображения</span></h5><p><span>Прежде чем перейти непосредственно к кодированию текста научимся сохранять картинку в файл. Для этого:</span></p><ol start='' ><li><span>Добавьте слот </span><code>saveImage</code><span>. Действуйте так же как и при добавлении слота </span><code>loadImage</code><span>;</span></li><li><span>Соедините слот </span><code>saveImage</code><span> с сигналом от кнопки. Действуйте так же как и при соединении слота </span><code>loadImage</code><span>, но в качестве источника сигнала выберите кнопку на которой написано: &quot;Сохранить картинку&quot;;</span></li><li><span>Перейдите в тело слота.</span></li></ol><p><span>Для выбора пути и имени под которым будет сохранена картинка воспользуйтесь классом </span><code>QFileDialog</code><span>. В  </span><a href='https://doc.qt.io/qtforpython/PySide6/QtWidgets/QFileDialog.html'><span>документации</span></a><span> можно найти примеры демонстрирующие вызов диалогового окна сохранения. Настройте фильтр расширений на работу только с </span><code>.png</code><span> файлами.</span></p><p><span>Сохранить изображение можно при помощи метода </span><code>save</code><span> поля </span><code>image</code><span>.  В качестве параметра метод принимает строку указывающую куда сохранять изображение.</span></p><p><span>Если процедура сохранения картинки прошла успешно, поменяйте текст на элементе </span><code>label</code><span> на: &quot;Изображение успешно сохранено&quot; иначе на: &quot;Изображение не сохранено&quot;.</span></p><h5><a name="кодирование-сообщения-n362" class="md-header-anchor"></a><span>Кодирование сообщения</span></h5><p><span>Алгоритм добавления текста в изображения описан в одноимённом пункте раздела 2, поэтому перейдём непосредственно к реализации. Для этого:</span></p><ol start='' ><li><span>Добавьте слот </span><code>encodeMsg</code><span>;</span></li><li><span>Соедините слот </span><code>encodeMsg</code><span> с сигналом от кнопки &quot;Закодировать текст&quot;;</span></li><li><span>Перейдите в тело слота.</span></li></ol><p><span>В теле слота реализуйте следующую последовательность действий:</span></p><ol start='' ><li><p><span>Получите текст введённый пользователем в виджет </span><code>plainTextEdit</code><span> при помощи его метода </span><code>toPlainText()</code><span>. В результате вы получите обычную python-строку.</span></p></li><li><p><span>Воспользуйтесь методом python-строки </span><a href='https://pythononline.ru/osnovy/encode-decode'><code>encode()</code></a><span>, чтобы получить список байт. Можно явно указать кодировку </span><code>encode(&#39;utf-8&#39;)</code><span>, но в Python3 строки по умолчанию хранятся в формате </span><em><span>UTF-8</span></em><span>, поэтому результат будет один и тот же;</span></p></li><li><p><span>Определите, сколько информации можно поместить в картинку из расчёта, что в каждый пиксель изображения можно записать 3 бита.</span></p></li><li><p><span>Если размер списка байт плюс ключ, плюс информация о размере НЕ помещаются в изображение, то поменяйте текст на элементе </span><code>label</code><span> на: &quot;Ошибка. Не достаточно места!&quot;. И выйдите из слота.</span></p></li><li><p><span>Поместите текст в картинку согласно алгоритму описанному в одноимённом пункте раздела 2. Вам могут понадобиться:</span></p><ul><li><code>pixelColor(x, y)</code><span> - метод класса </span><a href='https://doc.qt.io/qtforpython/PySide6/QtGui/QImage.html'><code>QImage</code></a><span>; Возвращает цвет пикселя с целочисленными координатами (</span><em><span>x</span></em><span>, </span><em><span>y</span></em><span>) как объект класса </span><a href='https://doc.qt.io/qtforpython/PySide6/QtGui/QColor.html'><code>QColor</code></a><span>;</span></li><li><code>setPixelColor(x, y, color)</code><span> - метод класса </span><a href='https://doc.qt.io/qtforpython/PySide6/QtGui/QImage.html'><code>QImage</code></a><span>; Устанавливает цвет пикселя с целочисленными координатами (</span><em><span>x</span></em><span>, </span><em><span>y</span></em><span>) в значение </span><em><span>color</span></em><span> типа </span><a href='https://doc.qt.io/qtforpython/PySide6/QtGui/QColor.html'><code>QColor</code></a><span>;</span></li><li><code>red()</code><span>, </span><code>green()</code><span>, </span><code>blue()</code><span> - методы класса </span><a href='https://doc.qt.io/qtforpython/PySide6/QtGui/QColor.html'><code>QColor</code></a><span>; Возвращают целое число соответствующее одноимённой компоненте цвета;</span></li><li><code>setRed(red)</code><span>, </span><code>setGreen(green)</code><span>, </span><code>setBlue(blue)</code><span> - методы класса </span><a href='https://doc.qt.io/qtforpython/PySide6/QtGui/QColor.html'><code>QColor</code></a><span>; Устанавливают значение одноимённой компоненты цвета в соответствии с переданным как параметр целым числом.</span></li></ul></li><li><p><span>Поменяйте текст на элементе </span><code>label</code><span> на: &quot;Сообщение добавлено в картинку!&quot;</span></p></li></ol><h5><a name="декодирование-сообщения-n394" class="md-header-anchor"></a><span>Декодирование сообщения</span></h5><p><span>Подробно останавливаться на алгоритме декодирования не будем, зная алгоритм кодирования довольно легко понять как декодировать сообщение. Перейдём сразу к реализации:</span></p><ol start='' ><li><span>Добавьте слот </span><code>decodeMsg</code><span>;</span></li><li><span>Соедините слот </span><code>decodeMsg</code><span> с сигналом от кнопки &quot;Декодировать текст&quot;;</span></li><li><span>Перейдите в тело слота.</span></li></ol><p><span>В теле слота реализуйте следующую последовательность действий:</span></p><ol start='' ><li><p><span>Проверьте наличие метки в изображении. Если метки нет, то поменяйте текст на элементе </span><code>label</code><span> на: &quot;Сообщение не обнаружено&quot;. И выйдите из слота;</span></p></li><li><p><span>Если метка есть, то определите размер сообщения и поменяйте текст на элементе </span><code>label</code><span> на: &quot;Присутствует сообщение длиной </span><em><span>{длина}</span></em><span> байт&quot;, например так:</span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="c++"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="c++"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">self</span>.<span class="cm-variable">ui</span>.<span class="cm-variable">label</span>.<span class="cm-variable">setText</span>(<span class="cm-variable">f</span><span class="cm-string">"Присутствует сообщение длиной {size} байт"</span>)</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="display: none; height: 23px;"></div></div></div></pre><p><span>где </span><code>size</code><span> - переменная.</span></p></li><li><p><span>Восстановите байты из картинки и при помощи метода python-строки </span><a href='https://pythononline.ru/osnovy/encode-decode'><code>decode()</code></a><span>, преобразуйте этот список байт в строку. Кодировка по умолчанию: </span><em><span>UTF-8</span></em><span>;</span></p></li><li><p><span>Выведите текст в виджет </span><code>plainTextEdit</code><span> при помощи его метода </span><code>setPlainText</code><span>.</span></p></li></ol><h5><a name="дополнительный-плюшки-n415" class="md-header-anchor"></a><span>Дополнительный плюшки</span></h5><p><span>Чтобы пользователь понимал сколько ещё информации поместится в изображение реализуйте следующее:</span></p><ol start='' ><li><span>Добавьте слот </span><code>msgChanged</code><span>;</span></li><li><span>Соедините этот слот с сигналом </span><code>textChanged</code><span> от виджета </span><code>plainTextEdit</code><span>;</span></li><li><span>Перейдите в тело слота.</span></li></ol><p><span>Как только пользователь будет изменять текст в </span><code>plainTextEdit</code><span> будет вызываться </span><code>msgChanged</code><span>.  В теле слота напишите:</span></p><ol start='' ><li><span>Определите полное количество байт которые можно поместить в изображение;</span></li><li><span>Преобразуйте текст в </span><code>plainTextEdit</code><span> в список байт и определите его размер;</span></li><li><span>Определите количество байт которое ещё можно ввести. При расчёте учитывайте место занимаемое меткой и размером;</span></li><li><span>Поменяйте текст на элементе </span><code>label</code><span> на: &quot;Ещё можно ввести: </span><em><span>{количество}</span></em><span> байт&quot;.</span></li></ol><h5><a name="проверка-работоспособности-программы-n434" class="md-header-anchor"></a><span>Проверка работоспособности программы</span></h5><p><span>Проверьте правильность реализации программы на </span><a href='./lab5_files/img/saitama.png'><span>изображении</span></a><span> [13.1 МБ].</span></p><h3><a name="что-должно-быть-в-отчёте" class="md-header-anchor"></a><span>Что должно быть в отчёте</span></h3><ol start='' ><li><p><span>Отчёт по лабораторной работе оформляется в соответствии с указанными в разделе Правила оценивания требованиями.</span></p></li><li><p><span>В отчёте создайте раздел (заголовок второго уровня) </span><em><span>Постановка задачи</span></em><span> и продублируйте туда соответствующий блок из этого документа.</span></p></li><li><p><span>Создайте раздел (заголовок второго уровня) </span><em><span>Выполнение работы</span></em><span> и текстом подробно опишите всё, что делали в процессе выполнения.</span></p></li><li><p><span>Кроме стандартных элементов добавьте в отчёт:</span></p><ol start='' ><li><span>Скриншот разработанного вами графического интерфейса;</span></li><li><span>Ответ на вопрос про зашифрованное сообщение: Кто и что обещал?</span></li><li><span>Любая картинка в формате </span><em><span>.png</span></em><span> с любым зашифрованным текстом. </span></li></ol></li><li><p><span>В папке с лабораторной работой должно быть:</span></p><ol start='' ><li><span>Отчёт в файле ReadMe.md;</span></li><li><span>Каталоги с С++ и Python кодом;</span></li></ol></li></ol><h3><a name="ссылки" class="md-header-anchor"></a><span>Ссылки</span></h3><ol start='' ><li><span>Форматы изображений [видео]: </span><a href='https://youtu.be/P1K0ZNGczsk'><span>часть1</span></a><span>, </span><a href='https://youtu.be/G5Q2CltA_Pc'><span>часть2</span></a></li><li><a href='https://youtu.be/d4rnOernb2s'><span>Что такое RGB и CMYK? [видео]</span></a></li><li><a href='https://habr.com/ru/post/312642/'><span>Юникод: необходимый практический минимум для каждого разработчика</span></a></li><li><a href='https://ravesli.com/urok-45-pobitovye-operatory/'><span>Побитовые операторы</span></a></li><li><a href='https://ravesli.com/urok-46-bitovye-flagi-i-bitovye-maski/'><span>Битовые флаги и битовые маски</span></a></li><li><a href='https://doc.qt.io/qtforpython/index.html'><span>Документация PySide6</span></a></li><li><a href='https://habr.com/ru/post/253045/'><span>Стеганография в XXI веке. Цели. Практическое применение. Актуальность</span></a></li></ol></div>
+</body>
+</html>
